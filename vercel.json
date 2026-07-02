@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "outputDirectory": "public",
+  "buildCommand": "python3 build.py",
+  "redirects": [
+    { "source": "/go/combo",      "destination": "https://www.springwellwater.com/?oid=10&affid=40", "permanent": false },
+    { "source": "/go/filter",     "destination": "https://www.springwellwater.com/?oid=1&affid=40",  "permanent": false },
+    { "source": "/go/softener",   "destination": "https://www.springwellwater.com/?oid=9&affid=40",  "permanent": false },
+    { "source": "/go/well-combo", "destination": "https://www.springwellwater.com/?oid=5&affid=40",  "permanent": false },
+    { "source": "/go/well",       "destination": "https://www.springwellwater.com/?oid=3&affid=40",  "permanent": false },
+    { "source": "/go/ro",         "destination": "https://www.springwellwater.com/?oid=34&affid=40", "permanent": false },
+    { "source": "/go/uv",         "destination": "https://www.springwellwater.com/?oid=12&affid=40", "permanent": false },
+    { "source": "/go/test-kit",   "destination": "https://www.springwellwater.com/?oid=8&affid=40",  "permanent": false },
+    { "source": "/go/sediment",   "destination": "https://www.springwellwater.com/?oid=13&affid=40", "permanent": false }
+  ]
+}
