@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /go/
+
+Sitemap: https://waterfiltersoftenercombo.com/sitemap.xml
