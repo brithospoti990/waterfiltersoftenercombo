@@ -1,0 +1,187 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "outputDirectory": "public",
+  "redirects": [
+    {
+      "source": "/go/tannin",
+      "destination": "https://www.springwellwater.com/product/water-filters/tannin-softener-system/?oid=20&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/tannin/",
+      "destination": "https://www.springwellwater.com/product/water-filters/tannin-softener-system/?oid=20&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/carbon-cartridge",
+      "destination": "https://www.springwellwater.com/product/water-filters/whole-house-cartridge-system/?oid=27&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/carbon-cartridge/",
+      "destination": "https://www.springwellwater.com/product/water-filters/whole-house-cartridge-system/?oid=27&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/replacement-filters",
+      "destination": "https://www.springwellwater.com/product/replacements/5-micron-sediment-filters-with-o-rings-and-lube-2-pack/?oid=26&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/replacement-filters/",
+      "destination": "https://www.springwellwater.com/product/replacements/5-micron-sediment-filters-with-o-rings-and-lube-2-pack/?oid=26&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/sediment-canister",
+      "destination": "https://www.springwellwater.com/product/replacements/pre-filter-canister-5-micron-filter/?oid=23&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/sediment-canister/",
+      "destination": "https://www.springwellwater.com/product/replacements/pre-filter-canister-5-micron-filter/?oid=23&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/combo/",
+      "destination": "https://www.springwellwater.com/product/dual-systems/water-filter-salt-softener/?oid=10&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/combo",
+      "destination": "https://www.springwellwater.com/product/dual-systems/water-filter-salt-softener/?oid=10&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/filter/",
+      "destination": "https://www.springwellwater.com/product/water-filters/whole-house-water-filters/?oid=1&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/filter",
+      "destination": "https://www.springwellwater.com/product/water-filters/whole-house-water-filters/?oid=1&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/softener/",
+      "destination": "https://www.springwellwater.com/product/water-softeners/salt-water-softeners/?oid=9&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/softener",
+      "destination": "https://www.springwellwater.com/product/water-softeners/salt-water-softeners/?oid=9&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/well-combo/",
+      "destination": "https://www.springwellwater.com/product/well-water/well-water-filter-and-salt-based-water-softener/?oid=5&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/well-combo",
+      "destination": "https://www.springwellwater.com/product/well-water/well-water-filter-and-salt-based-water-softener/?oid=5&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/well/",
+      "destination": "https://www.springwellwater.com/product/well-water/whole-house-iron-filter/?oid=3&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/well",
+      "destination": "https://www.springwellwater.com/product/well-water/whole-house-iron-filter/?oid=3&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/ro/",
+      "destination": "https://www.springwellwater.com/product/under-sink-filtration/moen-reverse-osmosis-water-filtration-system/?oid=34&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/ro",
+      "destination": "https://www.springwellwater.com/product/under-sink-filtration/moen-reverse-osmosis-water-filtration-system/?oid=34&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/uv/",
+      "destination": "https://www.springwellwater.com/product/uv-systems/uv-water-purification/?oid=12&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/uv",
+      "destination": "https://www.springwellwater.com/product/uv-systems/uv-water-purification/?oid=12&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/test-kit/",
+      "destination": "https://www.springwellwater.com/product/water-testing/water-test-kit/?oid=8&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/test-kit",
+      "destination": "https://www.springwellwater.com/product/water-testing/water-test-kit/?oid=8&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/sediment/",
+      "destination": "https://www.springwellwater.com/product/replacements/spin-down-sediment-filter/?oid=13&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/sediment",
+      "destination": "https://www.springwellwater.com/product/replacements/spin-down-sediment-filter/?oid=13&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/calcite/",
+      "destination": "https://www.springwellwater.com/product/well-water/calcite-ph-neutralizer/?oid=18&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/calcite",
+      "destination": "https://www.springwellwater.com/product/well-water/calcite-ph-neutralizer/?oid=18&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/chemical-injection/",
+      "destination": "https://www.springwellwater.com/product/well-water/chemical-injection-system/?oid=19&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/chemical-injection",
+      "destination": "https://www.springwellwater.com/product/well-water/chemical-injection-system/?oid=19&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/salt-free-combo/",
+      "destination": "https://www.springwellwater.com/product/dual-systems/water-filter-salt-free-softener/?oid=4&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/salt-free-combo",
+      "destination": "https://www.springwellwater.com/product/dual-systems/water-filter-salt-free-softener/?oid=4&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/2in1/",
+      "destination": "https://www.springwellwater.com/product/dual-systems/2-in-1-filter-salt-softener-combo-system/?oid=21&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/2in1",
+      "destination": "https://www.springwellwater.com/product/dual-systems/2-in-1-filter-salt-softener-combo-system/?oid=21&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/salt-free/",
+      "destination": "https://www.springwellwater.com/product/water-softeners/salt-free-water-softeners/?oid=2&affid=40",
+      "permanent": false
+    },
+    {
+      "source": "/go/salt-free",
+      "destination": "https://www.springwellwater.com/product/water-softeners/salt-free-water-softeners/?oid=2&affid=40",
+      "permanent": false
+    }
+  ]
+}

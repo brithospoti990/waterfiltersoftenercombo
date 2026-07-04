@@ -1,0 +1,206 @@
+<style>
+@media print {
+  header, nav, footer, .site-foot, .sticky-cta, .disclosure-line, .byline img, #panel-builder, .no-print, button { display: none !important; }
+  article { font-size: 11pt; }
+  #sc-card { border: 1px solid #999; page-break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+<article>
+<h1>How to Test Well Water (and What to Test For): The Sampling Manual</h1>
+
+<div class="byline">
+  <img src="/author-kelly.jpg" alt="Kelly McClendon, founder of WaterFilterSoftenerCombo.com" width="52" height="52">
+  <div class="who">
+    <a href="/about/">Kelly McClendon</a> <span class="role">&middot; Founder, WaterFilterSoftenerCombo.com</span><br>
+    <span class="role">Payson, AZ well &middot; I've tested three ways &mdash; the counter kit, the certified-lab cooler, and the sample I botched and had to redo</span>
+  </div>
+</div>
+<p class="updated">Last updated: July 2026 &middot; Sourced to CDC, EPA, and state-extension guidance</p>
+
+<p><strong>Test your well at least annually for total coliform bacteria, nitrates, TDS, and pH &mdash; at a state-<a href="/pfas-in-drinking-water/">certified lab</a>, per CDC guidance. Add regional tests (arsenic, radon, and others) based on your geology. Use home kits only for screening and monitoring, never for the health-gated results. And take the sample right, because bad technique quietly ruins good tests.</strong></p>
+
+<p class="disclosure-line">Reader-supported: this page has a couple of affiliate links (a home screening kit) and I may earn a commission at no cost to you. It also tells you to call your county health department before spending anything, and exactly what a kit can't do. <a href="/affiliate-disclosure/">Details</a>. Health guidance is attributed to CDC/EPA and is not medical advice.</p>
+
+<p>My most useful testing lesson came from a wasted week. I ran an iron test at the cabin, got a beautifully clean result, and felt relieved for exactly seven days &mdash; until I realized I'd drawn the sample from a tap <em>downstream</em> of my softener, which had already stripped the iron I was trying to measure. The test wasn't wrong. My sample was. I'd measured my treatment, not my water. That's the thing no testing page tells you: the lab can do everything right and still hand you a useless number if you collected it wrong. So this is the manual I built from three experiences &mdash; the screening kit on my counter, the certified-lab panel with the iced cooler and the 24-hour clock, and the botched sample I had to redo. What to test for, when, where, and &mdash; the part everyone skips &mdash; exactly how to take the sample.</p>
+
+<h2 id="what-to-test">What to Test For: The Tiered Panels</h2>
+<p>Not every well needs every test. Think in tiers, all attributed to CDC, EPA, and state-extension guidance.</p>
+<p><strong>The annual baseline &mdash; every well, every year.</strong> Total coliform bacteria, nitrates, total dissolved solids (TDS), and pH. That's the CDC and EPA minimum, and it's non-negotiable because the first two are health-gated and invisible &mdash; you cannot see, taste, or smell coliform or nitrates. Coliform is the indicator that a contamination pathway exists; nitrate is the one that's specifically dangerous to infants.</p>
+<p><strong>The first-year / new-well panel.</strong> When you're establishing a baseline on a well you just inherited or drilled, add hardness, iron, manganese, sulfate, and chloride to the baseline &mdash; the aesthetic and treatment-planning parameters &mdash; plus your regional tier below. One comprehensive panel now tells you what you're working with; the pillar's <a href="/well-water-treatment-system/#symptom-map">symptom map</a> connects any surprises to their treatment.</p>
+<p><strong>The regional / geology tier &mdash; honestly variable.</strong> This is where generic lists fail, because your aquifer isn't generic. Arsenic is a real concern across much of the Southwest, New England, and the upper Midwest (USGS regional data). Radon shows up in granite country. Uranium, fluoride, and agricultural add-ons (pesticides and VOCs near cropland or fuel storage) are all location-dependent. The honest instruction that beats any list: <strong>your county extension office or state health department knows your aquifer</strong> &mdash; call and ask what's common locally. No affiliate page can tell you what a person who tests your county's wells every week already knows.</p>
+<p><strong>The situational triggers.</strong> Test off-cycle after flooding, after any well work (pump, casing, cap), after nearby construction or drilling, and immediately on any change in taste, smell, or color. Add unexplained gastrointestinal illness in the household to that list &mdash; a reason to test for bacteria promptly, per CDC (and not medical advice; see a doctor for the illness itself). Real-estate transactions have their own requirements: lender panels for FHA- and VA-class loans typically require bacteria and nitrate at minimum, sometimes more, and requirements vary by state and lender &mdash; confirm yours rather than assuming.</p>
+
+<h2 id="cadence">The Cadence: How Often to Test</h2>
+<p>The rhythm is simple. <strong>The annual baseline is the non-negotiable heartbeat</strong> &mdash; coliform, nitrates, TDS, pH every year, per CDC, with spring (after snowmelt and rain, when contamination risk peaks) an ideal time. <strong>The situational triggers</strong> above are the off-cycle events &mdash; you test when something changes, not just when the calendar says. And for treatment owners, there's a <strong>monitoring tier</strong>: checking hardness, iron, and pH quarterly to semiannually to verify your equipment is still winning. That last one is a legitimate home-kit job &mdash; a screening kit is genuinely useful for the between-labs pulse check on your treatment, which is different work from the certified baseline (the fence between those two jobs is the next section, and it matters).</p>
+
+<div class="tool" id="panel-builder">
+  <span class="kicker">Interactive Tool</span>
+  <h3>The panel builder</h3>
+  <label>Your situation</label>
+  <label style="font-weight:400"><input type="radio" name="pb1" value="new" checked> New well / just moved in</label>
+  <label style="font-weight:400"><input type="radio" name="pb1" value="annual"> Established, annual test</label>
+  <label style="font-weight:400"><input type="radio" name="pb1" value="verify"> Verifying my treatment works</label>
+  <label>Region / geology</label>
+  <label style="font-weight:400"><input type="radio" name="pb2" value="unknown" checked> Not sure</label>
+  <label style="font-weight:400"><input type="radio" name="pb2" value="arsenic"> Southwest / New England / upper Midwest</label>
+  <label style="font-weight:400"><input type="radio" name="pb2" value="granite"> Granite / radon country</label>
+  <label>Nearby land use</label>
+  <label style="font-weight:400"><input type="radio" name="pb3" value="none" checked> Residential, nothing notable</label>
+  <label style="font-weight:400"><input type="radio" name="pb3" value="ag"> Agriculture / fuel / industrial nearby</label>
+  <label>Infants or pregnancy in the household?</label>
+  <label style="font-weight:400"><input type="radio" name="pb4" value="no" checked> No</label>
+  <label style="font-weight:400"><input type="radio" name="pb4" value="yes"> Yes</label>
+  <div class="result" aria-live="polite" id="pb-result"></div>
+  <p class="fineprint">Bacteria, nitrate, arsenic, lead, and radon always route to a certified lab here \u2014 never to a kit. That per-line honesty is the point.</p>
+</div>
+<script>
+(function(){
+  var res=document.getElementById('pb-result');
+  function v(n){var el=document.querySelector('input[name="'+n+'"]:checked');return el?el.value:null;}
+  function upd(){
+    var sit=v('pb1'),region=v('pb2'),land=v('pb3'),infant=v('pb4');
+    if(sit==='verify'){
+      res.innerHTML='<span class="big">Monitoring your treatment \u2014 a home kit\u2019s real job</span><span>To verify your equipment between labs, a screening kit for hardness, iron, and pH is the right tool \u2014 quick, cheap, repeatable. This is the one job kits own outright. But it does NOT replace your annual certified baseline (coliform, nitrates, TDS, pH), which still goes to a lab. <a href="/go/test-kit" rel="nofollow sponsored noopener">A screening kit</a> handles the pulse check; the lab handles the verdict.</span>';return;}
+    var lab=['<strong>Total coliform bacteria</strong> &rarr; certified lab','<strong>Nitrates</strong> &rarr; certified lab','TDS &rarr; lab or kit','pH &rarr; lab or kit'];
+    if(sit==='new')lab=lab.concat(['Hardness, iron, manganese &rarr; lab (kit for screening)','Sulfate, chloride &rarr; certified lab']);
+    if(region==='arsenic')lab.push('<strong>Arsenic</strong> &rarr; certified lab (regionally common where you are, per USGS)');
+    if(region==='granite')lab.push('<strong>Radon</strong> &rarr; certified lab (granite country)');
+    if(region==='unknown')lab.push('<em>Call your county health dept</em> \u2014 they know your aquifer\u2019s regional risks');
+    if(land==='ag')lab.push('<strong>Pesticides / VOCs / lead</strong> &rarr; certified lab (nearby land use warrants it)');
+    var infantNote='';
+    if(infant==='yes')infantNote='<p style="margin:.5em 0 0"><strong>Infants/pregnancy in the home:</strong> nitrate is a priority \u2014 above the EPA limit it\u2019s a methemoglobinemia risk for infants under 6 months, per CDC. Use a certified lab and, if positive, alternative water plus a physician\u2019s guidance. Not medical advice.</p>';
+    res.innerHTML='<span class="big">Your panel</span><ul style="margin:.3em 0 0;padding-left:1.1em"><li>'+lab.join('</li><li>')+'</li></ul>'+infantNote+'<p style="margin:.5em 0 0" class="fineprint">Estimated cost: baseline $20\u2013$60, comprehensive $150\u2013$350. Call your county health department first \u2014 many offer free or at-cost bacteria/nitrate testing.</p>';
+  }
+  ['pb1','pb2','pb3','pb4'].forEach(function(n){[].forEach.call(document.querySelectorAll('input[name="'+n+'"]'),function(el){el.addEventListener('change',upd);});});
+  upd();
+})();
+</script>
+
+<h2 id="fence">Kit vs Lab vs Free: The Fence That Matters</h2>
+<p>This is the honesty spine of the whole page, so I'll draw the line precisely. <strong>Certified labs own the health-gated tier.</strong> Bacteria, nitrates, arsenic, lead, radon, and anything tied to a real-estate transaction or a "should my family drink this" decision go to a state-certified lab, full stop. Find one through your state health or environmental department's certified-lab list, or the EPA's lab-certification contacts. Cost honesty: single tests run $20&ndash;$60, comprehensive panels $150&ndash;$350. Mail-order certified labs are a legitimate middle option &mdash; convenient, and the same "is it certified?" question applies.</p>
+<p><strong>Free and subsidized testing &mdash; the part no affiliate page will tell you.</strong> Many county health departments offer free or at-cost coliform and nitrate testing; state programs, extension-office screening events, and post-flood or new-well programs exist across the country. The genuine first instruction, before you spend a dollar: <strong>call your county health department and ask what they test for free.</strong> This section makes me nothing, and it's the most important paragraph here &mdash; because a page that points you to free testing is a page you can trust when it later mentions a product.</p>
+<p><strong>Home kits own the screening-and-monitoring tier &mdash; and only that tier.</strong> Strips and reagent kits for hardness, iron, pH, TDS, and chlorine are genuinely useful in three spots: triaging a symptom before you commit to a lab panel, verifying your treatment after install, and the between-labs pulse check. Where they can't go: anything you'd make a health decision on. A kit is a screening tool, not a certification, and a positive home bacteria result always gets confirmed at a lab. Held inside that fence, a <a href="/go/test-kit" rel="nofollow sponsored noopener">home test kit</a> earns its place &mdash; the kit tells me my iron filter is still winning; the lab told me what I was fighting. Two different jobs, and the page that pretends they're one isn't worth trusting.</p>
+
+<h2 id="sampling">The Sampling Manual: How to Take the Sample</h2>
+<p>Here's the flagship, the thing that would have saved my wasted week. Bad sampling is the silent result-killer, and almost no page teaches it. Seven steps, each with the failure it prevents.</p>
+<ol>
+  <li><strong>Get the right containers from the lab</strong> (not your own jars). Their bottles are sterile and often contain a preservative &mdash; coliform bottles hold a dechlorinating tablet. <em>Don't rinse it out</em>; that's the mistake everyone makes once. <em>Prevents:</em> an invalid or contaminated sample before you even start.</li>
+  <li><strong>Choose the right tap &mdash; and this is where I went wrong.</strong> For diagnosis, sample <em>raw water</em>: a tap or spigot upstream of all treatment (a bypass, or an outdoor spigot ahead of the system). For verifying equipment, sample the treated tap. My botched iron test measured softened water instead of raw &mdash; measure your treatment only when that's the question. <em>Prevents:</em> measuring the wrong water entirely.</li>
+  <li><strong>Prep the tap.</strong> Remove the faucet aerator, use cold water only, and for bacteria samples sterilize the spout as the lab instructs (a flame or bleach wipe). <em>Prevents:</em> the aerator's own bacteria contaminating a coliform sample &mdash; a leading false positive.</li>
+  <li><strong>Flush the line.</strong> Run cold water several minutes until you're pulling fresh water from the well, not water that sat in the pipes &mdash; unless your lab specifies otherwise (some want a first-draw for lead). <em>Prevents:</em> measuring your plumbing instead of your well.</li>
+  <li><strong>Fill correctly.</strong> Don't touch the bottle rim or the inside of the cap, don't set the cap down, fill to the line (don't overfill a bacteria bottle), and leave <em>no headspace</em> for VOC samples. <em>Prevents:</em> hand-contamination on bacteria tests and off-gassing on VOC tests.</li>
+  <li><strong>Mind the clock and the cold chain.</strong> Bacteria samples typically must reach the lab within about 24&ndash;30 hours, kept cold in a cooler. This is the <em>Tuesday-morning rule</em>: schedule sampling for a lab-open day so your sample doesn't age out over a weekend. <em>Prevents:</em> a sample rejected as too old to test.</li>
+  <li><strong>Label, log, and keep your copy.</strong> Date, time, and location on every bottle ("kitchen cold tap, raw"); start a one-page water log you keep year to year. <em>Prevents:</em> the future confusion of results you can't place in time.</li>
+</ol>
+
+<div class="tool" id="sampling-checklist">
+  <span class="kicker">Interactive Tool</span>
+  <h3>Your printable sampling-day checklist</h3>
+  <label>What are you testing for?</label>
+  <label style="font-weight:400"><input type="radio" name="sc1" value="diagnose" checked> Diagnosing my water (raw tap)</label>
+  <label style="font-weight:400"><input type="radio" name="sc1" value="verify"> Verifying treatment (treated tap)</label>
+  <div style="margin:.4em 0"><button type="button" id="sc-print" class="no-print" style="background:var(--teal,#177);color:#fff;border:0;border-radius:6px;padding:8px 14px;cursor:pointer;font:inherit">Print this checklist</button></div>
+  <div class="result" id="sc-card" aria-live="polite"></div>
+  <p class="fineprint">The printed page rides to the wellhead. Tap choice up top is keyed to your purpose \u2014 the mistake I made was sampling the wrong one.</p>
+</div>
+<script>
+(function(){
+  var card=document.getElementById('sc-card'),pbtn=document.getElementById('sc-print');
+  function purpose(){var el=document.querySelector('input[name="sc1"]:checked');return el?el.value:'diagnose';}
+  function upd(){
+    var raw=purpose()==='diagnose';
+    var tapNote=raw
+      ? '<strong>Sample the RAW tap</strong> \u2014 upstream of all treatment (bypass or outdoor spigot). You\u2019re measuring your water, not your equipment.'
+      : '<strong>Sample the TREATED tap</strong> \u2014 after your system. You\u2019re verifying the equipment is working, not diagnosing the well.';
+    var rows=[
+      ['Week before','Call the certified lab (or county health dept for free options); order the correct bottles'],
+      ['Week before','Check the lab\u2019s open hours \u2014 plan sampling for a lab-open day (the Tuesday rule)'],
+      ['Day of',''+tapNote],
+      ['Day of','Remove the aerator; cold water only; sterilize spout for bacteria as instructed'],
+      ['Day of','Flush the line several minutes (unless lab says first-draw)'],
+      ['Day of','Fill to the line; don\u2019t touch cap interior; no headspace for VOCs; don\u2019t rinse out preservative'],
+      ['After','Cap, label (date/time/location + raw or treated), ice the cooler'],
+      ['After','Deliver within ~24\u201330 hours for bacteria; log the results when they return']
+    ];
+    card.innerHTML='<div class="table-wrap"><table><tr><th>Phase</th><th>Do this</th></tr>'+rows.map(function(r){return '<tr><td><input type="checkbox"> '+r[0]+'</td><td>'+r[1]+'</td></tr>';}).join('')+'</table></div>';
+  }
+  [].forEach.call(document.querySelectorAll('input[name="sc1"]'),function(el){el.addEventListener('change',upd);});
+  if(pbtn)pbtn.addEventListener('click',function(){window.print();});
+  upd();
+})();
+</script>
+
+<h2 id="reading">Reading the Results: What the Numbers Mean</h2>
+<p>A page of numbers arrives and nobody explains it, so here's the literacy in one place. Standards come in two kinds. <strong>MCLs (Maximum Contaminant Levels)</strong> are enforceable health standards &mdash; the nitrate MCL is 10 mg/L, the arsenic MCL is 10 ppb, and exceeding one is a health issue to act on. <strong>Secondary standards</strong> are aesthetic, not health &mdash; iron's 0.3 ppm lives here (consistent with my <a href="/best-iron-filter-well-water/">iron filter guide</a>): it stains and tastes bad above that, but it isn't a poisoning. And "detected" doesn't mean "dangerous" &mdash; units matter enormously, so mind whether a result is in ppm or ppb (a thousandfold difference) before you panic.</p>
+<p><strong>Results to action, routed:</strong> aesthetic exceedances (hardness, iron, sulfur) go to the treatment train &mdash; the <a href="/well-water-treatment-system/#train">pillar</a> sequences it, the <a href="/best-iron-filter-well-water/">iron guide</a> sorts iron lanes, and a hardness number in gpg drops straight into my <a href="/what-size-water-softener-do-i-need/">sizing calculator</a>. Health exceedances get a different, careful path: <strong>retest to confirm first</strong> (many positives are collection errors, which is the whole reason technique matters), then remediate with professional guidance. A coliform positive means a shock-chlorination-and-retest protocol (detailed in the <a href="/well-water-treatment-system/#testing">pillar</a>); a nitrate positive with infants in the home means immediate alternative water and a physician's input &mdash; above the 10 mg/L limit nitrate is a methemoglobinemia (“blue baby”) risk for infants under six months, per CDC &mdash; and that's not medical advice, just the standard of care. This page teaches you to read the report; your extension office or health department helps you interpret your specific one.</p>
+
+<h2 id="water-log">The Water-Log Habit</h2>
+<p>One small discipline ties it all together: keep a running water log &mdash; one page, every test, dated. My cabin's log is a single sheet with columns for date, what I tested, the result, and where I sampled (raw or treated, so I never repeat my mistake). Year over year it turns isolated numbers into a trend line: iron creeping up, pH drifting, a nitrate reading that ticked toward the limit. A trend tells you things a single test can't, and it's the difference between reacting to a crisis and seeing it coming. It costs nothing and it's the most valuable page in my well file.</p>
+
+<h2 id="why-technique">Why Technique Beats Everything Else</h2>
+<p>I want to hammer this, because it's the lesson my wasted week taught and the thing the whole SERP underweights. A perfect lab and a perfect panel produce a worthless result if the sample was collected wrong. There are only two ways it goes wrong, and both are on your end, not the lab's. The sample gets <em>contaminated</em> during collection &mdash; the classic is a coliform false positive from an aerator you forgot to remove, so the test flags bacteria that were on your faucet, not in your well. Or the sample <em>changes</em> before it's analyzed &mdash; a bacteria bottle that sat warm in a car for two days, or a VOC sample that off-gassed through headspace you left in the bottle. When you hear someone say "the test said bacteria but then it was fine," you are almost always hearing a collection error, not a lab error. That's why a positive result gets a careful retest before you panic and before you spend on remediation. The number is only as good as the sample, and the sample is only as good as your five minutes of care at the tap. Slow down for those five minutes; they're the cheapest quality control in the whole process.</p>
+
+<h2 id="seasonal">The Seasonal-Well Wrinkle</h2>
+<p>One situation the standard advice glosses: seasonal and intermittent-use wells, like my cabin's. A well that sits depressurized for months &mdash; a vacation property, a hunting cabin, anything shut down over winter &mdash; needs a fresh bacteria test at the <em>start</em> of each season before anyone drinks from it, not just once a year on a calendar. Stagnant water in a dormant system is exactly where bacteria establish, and the reassuring test from last summer tells you nothing about this spring's first draw. My rule at the cabin: the season doesn't start until the coliform result comes back clean. It's an extra test and an extra few days of bottled water at opening, and it's caught problems twice that an annual-only schedule would have let me drink. If your well isn't running year-round, add "test at reopening" to your calendar &mdash; it's the trigger the annual rhythm misses.</p>
+
+<h2 id="faq" class="faq">Well Water Testing FAQ</h2>
+
+<h3>How often should I test my well water?</h3>
+<p>At least once a year for the baseline &mdash; total coliform bacteria, nitrates, TDS, and pH, per CDC and EPA. Test off-cycle after flooding, well work, nearby construction, or any change in taste, smell, or color. Households with infants, pregnancy, or a history of problems should test more often.</p>
+
+<h3>How much does well water testing cost?</h3>
+<p>A basic bacteria-and-nitrate test runs about $20&ndash;$60, often free or at-cost through a county health department. Comprehensive certified panels covering metals and minerals run $150&ndash;$350. Home screening kits are cheaper ($10&ndash;$30) but are for monitoring only, not certification &mdash; call your county before spending anything.</p>
+
+<h3>Is there free well water testing?</h3>
+<p>Often, yes &mdash; many county health departments and state programs offer free or subsidized coliform and nitrate testing, and extension offices run screening events. It's genuinely the first call to make before paying a private lab. Ask specifically what they test for free and whether they supply the sample bottles.</p>
+
+<h3>Can I test my well water myself?</h3>
+<p>For screening and monitoring &mdash; hardness, iron, pH, TDS, chlorine &mdash; yes, a home kit works well and is perfect for verifying treatment between lab visits. For anything health-gated &mdash; bacteria, nitrates, arsenic, lead &mdash; no; those require a certified lab, and a positive home result must be confirmed by one. Screen yourself; certify at a lab.</p>
+
+<h3>What should my well water test results be?</h3>
+<p>Coliform bacteria: absent. Nitrate: below the 10 mg/L MCL. pH: roughly 6.5&ndash;8.5. Iron below the 0.3 ppm secondary (aesthetic) standard. Remember MCLs are enforceable health limits while secondary standards are aesthetic, and watch your units &mdash; ppm versus ppb is a thousandfold difference. Your health department helps interpret specifics.</p>
+
+<h3>How long do well water test results take?</h3>
+<p>Bacteria results usually come back in a few days; broader chemistry and specialty panels (metals, VOCs, radon) can take one to two weeks. Bacteria samples are time-sensitive on the front end too &mdash; they must reach the lab within about 24&ndash;30 hours of collection, kept cold, which is why you sample on a lab-open day.</p>
+
+<h3>Do I need to test after flooding?</h3>
+<p>Yes, immediately &mdash; flooding is a leading cause of well contamination, and floodwater carries bacteria and chemicals into the wellhead. Per CDC and EPA, use bottled or a known-safe source until you've tested, and shallow wells should be tested even if the wellhead wasn't submerged. Shock-chlorinate and retest before trusting it again.</p>
+
+<h2 id="next-steps">Next Steps, By Where You Are</h2>
+<p><strong>Untested?</strong> Start with two calls: your county health department (ask what they test free) and a state-certified lab for the rest of the baseline. That's your first move, before any treatment decision. <strong>Chasing a symptom?</strong> The pillar's <a href="/well-water-treatment-system/#symptom-map">symptom map</a> tells you what to test for, then you come back here for how to sample it right. <strong>Results in hand?</strong> Aesthetic problems route to the <a href="/well-water-treatment-system/#train">treatment train</a> and the <a href="/best-iron-filter-well-water/">iron guide</a>; a hardness number goes to the <a href="/what-size-water-softener-do-i-need/">sizing calculator</a>; health exceedances get a retest and professional guidance. And if you're on city water and landed here, your utility publishes a CCR that already tests most of this &mdash; the <a href="/">combo guide</a> covers what to polish anyway. Test right, log it, and the invisible stops being unknown.</p>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Take a Well Water Sample",
+  "description": "A step-by-step protocol for collecting a valid well water sample for certified-lab testing, including raw-vs-treated tap choice, sterile technique, and hold-time handling.",
+  "totalTime": "PT30M",
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Get the right containers from the lab", "text": "Use the lab's sterile bottles with their preservatives. Don't rinse out the dechlorinating tablet in coliform bottles."},
+    {"@type": "HowToStep", "position": 2, "name": "Choose the right tap", "text": "Sample raw water upstream of treatment for diagnosis; sample the treated tap only when verifying equipment."},
+    {"@type": "HowToStep", "position": 3, "name": "Prep the tap", "text": "Remove the aerator, use cold water only, and sterilize the spout for bacteria samples as the lab instructs."},
+    {"@type": "HowToStep", "position": 4, "name": "Flush the line", "text": "Run cold water several minutes to pull fresh well water rather than water standing in the pipes, unless the lab specifies a first-draw."},
+    {"@type": "HowToStep", "position": 5, "name": "Fill correctly", "text": "Don't touch the bottle rim or cap interior, fill to the line without overfilling, and leave no headspace for VOC samples."},
+    {"@type": "HowToStep", "position": 6, "name": "Mind the clock and cold chain", "text": "Bacteria samples must reach the lab within about 24 to 30 hours, kept cold. Sample on a lab-open day."},
+    {"@type": "HowToStep", "position": 7, "name": "Label, log, and keep your copy", "text": "Label each bottle with date, time, and location including raw or treated, and record it in a running water log."}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How often should I test my well water?","acceptedAnswer":{"@type":"Answer","text":"At least once a year for the baseline - total coliform bacteria, nitrates, TDS, and pH, per CDC and EPA. Test off-cycle after flooding, well work, nearby construction, or any change in taste, smell, or color. Households with infants or a history of problems should test more often."}},
+    {"@type":"Question","name":"How much does well water testing cost?","acceptedAnswer":{"@type":"Answer","text":"A basic bacteria-and-nitrate test runs about $20-60, often free or at-cost through a county health department. Comprehensive certified panels run $150-350. Home screening kits are cheaper ($10-30) but are for monitoring only, not certification."}},
+    {"@type":"Question","name":"Is there free well water testing?","acceptedAnswer":{"@type":"Answer","text":"Often yes - many county health departments and state programs offer free or subsidized coliform and nitrate testing, and extension offices run screening events. It's the first call to make before paying a private lab. Ask what they test for free and whether they supply bottles."}},
+    {"@type":"Question","name":"Can I test my well water myself?","acceptedAnswer":{"@type":"Answer","text":"For screening and monitoring - hardness, iron, pH, TDS, chlorine - yes, a home kit works well, perfect for verifying treatment between lab visits. For anything health-gated - bacteria, nitrates, arsenic, lead - no; those require a certified lab, and a positive home result must be confirmed by one."}},
+    {"@type":"Question","name":"What should my well water test results be?","acceptedAnswer":{"@type":"Answer","text":"Coliform bacteria: absent. Nitrate: below the 10 mg/L MCL. pH: roughly 6.5-8.5. Iron below the 0.3 ppm secondary standard. MCLs are enforceable health limits while secondary standards are aesthetic, and watch units - ppm versus ppb is a thousandfold difference."}},
+    {"@type":"Question","name":"How long do well water test results take?","acceptedAnswer":{"@type":"Answer","text":"Bacteria results usually come back in a few days; broader chemistry and specialty panels can take one to two weeks. Bacteria samples must also reach the lab within about 24-30 hours of collection, kept cold, which is why you sample on a lab-open day."}},
+    {"@type":"Question","name":"Do I need to test after flooding?","acceptedAnswer":{"@type":"Answer","text":"Yes, immediately - flooding is a leading cause of well contamination. Per CDC and EPA, use bottled or a known-safe source until you've tested, and shallow wells should be tested even if the wellhead wasn't submerged. Shock-chlorinate and retest before trusting it again."}}
+  ]
+}
+</script>

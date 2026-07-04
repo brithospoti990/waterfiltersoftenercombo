@@ -1,0 +1,203 @@
+<article>
+<h1>Do Whole House Filters Reduce Water Pressure? The Honest Answer, With Numbers</h1>
+
+<div class="byline">
+  <img src="/author-kelly.jpg" alt="Kelly McClendon, founder of WaterFilterSoftenerCombo.com" width="52" height="52">
+  <div class="who">
+    <a href="/about/">Kelly McClendon</a> <span class="role">&middot; Founder, WaterFilterSoftenerCombo.com</span><br>
+    <span class="role">Mesa, AZ &middot; filter + softener on a two-shower house &middot; I gauged my pressure before and after install and kept both numbers</span>
+  </div>
+</div>
+<p class="updated">Last updated: July 2026 &middot; Pressure figures from published specs and my own gauge</p>
+
+<p><strong>Yes — every whole-house filter adds some restriction; that's physics. But a properly sized system loses only about 2&ndash;3 PSI, which you won't feel at the tap. An undersized one you absolutely will. Most "pressure" complaints are actually flow problems, and most post-install drops are a $15 clogged cartridge — not a ruined shower.</strong></p>
+
+<p class="disclosure-line">Reader-supported: this page has a couple of affiliate links and I may earn a commission at no cost to you. If you landed here with a pressure problem, the fix is usually a cheap cartridge, not a purchase. <a href="/affiliate-disclosure/">Details</a>.</p>
+
+<p>The week before my install, I screwed a $12 pressure gauge onto the hose bib because I had exactly the fear you might have right now: that a filter meant weak showers forever. It read 66 PSI. A month after the filter and softener went in, same gauge, same bib: 63 PSI. Three points, unnoticeable at every faucet in the house — and that number has held for years, which matches the published field data on these systems almost exactly. That gauge reading is this whole article in one number. But "3 PSI" only reassures if you understand three things: why it's small, when it wouldn't be, and what to do if yours dropped more. So let's do all three, honestly.</p>
+
+<div class="tool" id="fork" style="border-left:4px solid var(--teal,#177);padding-left:14px;margin:1.2em 0">
+  <p style="margin:.2em 0"><strong>Two readers land on this page — take your path:</strong></p>
+  <p style="margin:.2em 0">&rarr; <strong><a href="#buying">I'm about to buy</a></strong> and want the honest physics and the sizing math before I spend.</p>
+  <p style="margin:.2em 0">&rarr; <strong><a href="#diagnosis">My pressure already dropped</a></strong> and the filter is my suspect — take me to the diagnosis.</p>
+</div>
+
+<h2 id="psi-gpm">First, Untangle PSI and GPM (This Fixes Half the Confusion)</h2>
+<p>Almost every "my filter killed my pressure" story is really a flow story, and you can't reason about any of this until the two are separated. <strong>PSI (pressure)</strong> is stored force — how hard the water is pushed, sitting there whether or not a tap is open. <strong>GPM (flow)</strong> is delivered volume — how much water actually moves per minute when you open something. What your shower <em>feels</em> is flow at the fixture, not static pressure on a gauge.</p>
+<p>Picture a highway. PSI is the speed limit; GPM is how many lanes are open. A filter barely touches the speed limit — that's the 2&ndash;3 PSI. What an undersized filter does is narrow the lanes. Fine at 1 a.m. with one car; gridlocked at 7 a.m. when three showers and the washing machine all merge at once. That's why a house can read a healthy 60 PSI static on the gauge and still trickle when the family gets going — the pressure is fine; the flow got choked at peak. Hold this distinction, because every section below runs on it: <strong>a good filter costs you a sip of PSI; a bad-sized one costs you GPM when you need it most.</strong></p>
+
+<h2 id="how-much">How Much Loss Is Actually Real</h2>
+<p>The honest numbers, since this SERP is full of "it depends." A correctly sized whole-house carbon system adds roughly <strong>2&ndash;3 PSI</strong> of drop at normal flow — published field data on systems like the SpringWell CF measured about 3 PSI over three years of daily use, which lines up with my own 66-to-63 reading. Typical municipal supply runs <strong>40&ndash;60 PSI</strong>, some homes higher. Plumbing code generally wants at least ~20 PSI at the fixture. And anything <em>below ~40 PSI going in</em> means you had a pressure problem before any filter existed — the filter just became the last straw. A drop you can actually feel — 10&ndash;15 PSI or more — is never "normal filter effect"; it's a clog, an undersized system, or a plumbing restriction, and it has a cause you can find.</p>
+<p>One honesty most seller pages skip: the drops compound. Your sediment stage, carbon tank, softener, and any fine cartridge each take a small bite, and the number that matters is the <em>system total</em>, not any single component. That's an argument for not over-tightening the stages you control — the full staging-cost story is in my <a href="/water-filter-micron-rating/#staging">micron ratings guide</a>, which owns cartridge selection so this page doesn't have to.</p>
+
+<div class="tool" id="gpm-calc">
+  <span class="kicker">Interactive Tool</span>
+  <h3>Your peak GPM, and the tier that fits it</h3>
+  <label for="gc-baths">Bathrooms</label>
+  <select id="gc-baths">
+    <option value="1">1 bathroom</option>
+    <option value="2">2 bathrooms</option>
+    <option value="3" selected>3 bathrooms</option>
+    <option value="4">4 bathrooms</option>
+    <option value="5">5 bathrooms</option>
+    <option value="6">6 bathrooms</option>
+    <option value="7">7+ bathrooms</option>
+  </select>
+  <label>Also running at peak (tap what's realistic)</label>
+  <label style="font-weight:400"><input type="checkbox" id="gc-dw"> Dishwasher</label>
+  <label style="font-weight:400"><input type="checkbox" id="gc-wm"> Washing machine</label>
+  <label style="font-weight:400"><input type="checkbox" id="gc-irr"> Irrigation / hose bib</label>
+  <div class="result" aria-live="polite" id="gc-result"></div>
+  <p class="fineprint">Fixture assumptions (EPA WaterSense / industry norms): shower ~2.0 GPM, the model assumes not every bathroom runs at once (realistic simultaneous use), dishwasher ~1.5, washer ~2.5, hose/irrigation ~3. Buy for peak simultaneous demand, not fixture total.</p>
+</div>
+<script>
+(function(){
+  var baths=document.getElementById('gc-baths'),dw=document.getElementById('gc-dw'),wm=document.getElementById('gc-wm'),irr=document.getElementById('gc-irr'),res=document.getElementById('gc-result');
+  function upd(){
+    var b=parseInt(baths.value);
+    // realistic simultaneous showers/faucets: not every bath at once
+    var simFix = b<=1?1 : b<=3?2 : b<=6?3 : 4;
+    var fixtureGPM = simFix*2.2; // shower+basin blended ~2.2
+    var extra = (dw.checked?1.5:0)+(wm.checked?2.5:0)+(irr.checked?3:0);
+    var peak = Math.round((fixtureGPM+extra)*10)/10;
+    var tier,flow,verdict;
+    if(b<=3){tier='1\u20133 bathroom tier';flow=9;}
+    else if(b<=6){tier='4\u20136 bathroom tier';flow=12;}
+    else {tier='7+ bathroom tier';flow=17;}
+    if(peak<=flow-1.5) verdict='A '+flow+' GPM system fits your house with headroom \u2014 you won\u2019t feel it.';
+    else if(peak<=flow) verdict='A '+flow+' GPM system covers your peak \u2014 a good match, no meaningful drop.';
+    else verdict='Your peak ('+peak+' GPM) is pushing this tier \u2014 size UP to the next flow tier, don\u2019t buy the small one.';
+    res.innerHTML='<span class="big">Peak demand \u2248 '+peak+' GPM &middot; '+tier+' ('+flow+' GPM <a href="/water-filter-gpm-sizing/">service flow</a>)</span><span>'+verdict+' The rule: match the flow tier to your <em>peak simultaneous</em> demand, never your fixture total. Tier selection by home size is in the sizing section below.</span>';
+  }
+  [baths,dw,wm,irr].forEach(function(el){el.addEventListener('change',upd);});
+  upd();
+})();
+</script>
+
+<h2 id="buying">Sizing It Right: The GPM Math for Buyers</h2>
+<p>Here's the knowledge that dissolves the trickling-shower fear: sizing is arithmetic, not luck. The one spec that governs whether you'll feel a filter is its <strong>service flow rating in GPM</strong> — read it against your home's peak simultaneous demand, and the fear becomes a number with a matching tier.</p>
+<p><strong>The fixture math</strong>, using EPA WaterSense-era figures: a modern showerhead runs about 2.0&ndash;2.5 GPM, a bathroom faucet ~1.2&ndash;1.5, a dishwasher ~1.5, a washing machine ~2.5, an outdoor hose or irrigation zone ~3&ndash;5. The trap is adding up every fixture in the house — nobody runs them all. What matters is <em>peak simultaneous use</em>: the worst realistic moment, usually a couple of showers plus an appliance. For most homes that peak lands well under the fixture total, which the calculator above estimates for you.</p>
+<p><strong>The tier rule and the canon flows</strong> — match the service-flow tier to that peak, not to your fixture count:</p>
+<ul>
+  <li><strong>1&ndash;3 bathrooms:</strong> a ~9 GPM system covers realistic peak demand comfortably.</li>
+  <li><strong>4&ndash;6 bathrooms:</strong> step up to ~12 GPM as simultaneous use climbs.</li>
+  <li><strong>7+ bathrooms:</strong> the <strong>17 GPM</strong> service tier &mdash; two showers, the dishwasher, and a hose bib running at once without anyone yelling up the stairs.</li>
+</ul>
+<p>And the undersizing honesty that makes the reassurance credible: <strong>a 9 GPM system on a five-bath house will be felt</strong>, and no maintenance schedule fixes a tier that's simply too small — the fix is buying the right one. That's the whole reason this page exists ahead of the purchase: the <a href="/go/filter" rel="nofollow sponsored noopener">whole-house system</a> only disappears into your plumbing if you match its flow tier to your house, and matching it is exactly what turns "will it wreck my pressure?" into "no, I sized it." Tier-by-home-size selection is laid out on <a href="/">the combo guide</a>.</p>
+
+<h2 id="diagnosis">Pressure Dropped After Install? The Diagnosis Tree</h2>
+<p>If you're the second reader — the filter went in months ago, pressure was fine, and now it isn't — this section is yours, ordered cheapest-first because the cheap answer is usually the right one.</p>
+<p><strong>Step 1 &mdash; suspect the cartridge (it's almost always the cartridge).</strong> Sediment loading is gradual, then sudden. The filter runs fine for months, then loads enough to choke flow over a week or two. This is the single most common post-install pressure story, and the fix is a $15 cartridge, not a plumber. If you have gauges before and after the housing, a widening gap of 10&ndash;15+ PSI across the filter confirms it. With one gauge, note the reading, change the cartridge, and watch it recover. Cadence and how staging prevents the fast clogs are the <a href="/water-filter-micron-rating/#life-cost">micron guide's</a> department.</p>
+<p><strong>Step 2 &mdash; the bypass test (ten minutes, proves guilt or innocence).</strong> Every decent install has a bypass valve. Put the system in bypass so water skips the filter chain entirely. Then run your fixtures. <strong>Pressure returns &rarr; the filter chain is the restriction</strong> (back to Step 1, or you're undersized). <strong>Pressure stays low &rarr; your filter is exonerated</strong>, and the real culprit is house-side — which is the outcome no seller page wants to tell you about, so here it is plainly.</p>
+<p><strong>Step 3 &mdash; if the filter's innocent, the house-side suspects.</strong> A failing or misadjusted <strong>PRV (pressure-reducing valve)</strong> is the leading cause of house-wide pressure loss that gets blamed on filters — they stick and sag over years, and a filter install just happened to be the moment you noticed. Other suspects: a corroded galvanized pipe section finally closing up, a municipal supply change, or a hidden leak. On the supply question, call your utility and ask — that's their line to diagnose, not mine. These are plumber conversations, but knowing the filter is cleared saves you from returning a system that was never the problem.</p>
+<p><strong>Step 4 &mdash; day-one loss on a brand-new install.</strong> Different tree: it's an undersized tier (the calculator above tells you), a shipping plug or valve not fully opened (installers miss these), or a kink/reducer in the install — a 1-inch main necked down to half-inch filter ports is a permanent bottleneck. New-install loss is a sizing-or-install problem, not a worn-cartridge one.</p>
+
+<div class="tool" id="pd-diag">
+  <span class="kicker">Interactive Tool</span>
+  <h3>The pressure-drop diagnoser</h3>
+  <label>When did the pressure drop?</label>
+  <label style="font-weight:400"><input type="radio" name="pd1" value="gradual" checked> After months of the filter being fine</label>
+  <label style="font-weight:400"><input type="radio" name="pd1" value="dayone"> Right after a new install</label>
+  <label>Whole house, or one fixture?</label>
+  <label style="font-weight:400"><input type="radio" name="pd2" value="whole" checked> Whole house</label>
+  <label style="font-weight:400"><input type="radio" name="pd2" value="one"> Just one fixture</label>
+  <label>Tried the bypass test?</label>
+  <label style="font-weight:400"><input type="radio" name="pd3" value="no" checked> Not yet</label>
+  <label style="font-weight:400"><input type="radio" name="pd3" value="returns"> Yes &mdash; pressure returns in bypass</label>
+  <label style="font-weight:400"><input type="radio" name="pd3" value="stays"> Yes &mdash; pressure stays low in bypass</label>
+  <div class="result" aria-live="polite" id="pd-result"></div>
+  <p class="fineprint">Filter-chain and pressure-specific. For softener-failure symptoms (salt, regeneration, beads), the <a href="/water-softener-failing-signs/">failing-signs triage</a> is the sibling tool.</p>
+</div>
+<script>
+(function(){
+  var res=document.getElementById('pd-result');
+  function v(n){var el=document.querySelector('input[name="'+n+'"]:checked');return el?el.value:null;}
+  function card(band,big,body,link,label){
+    res.innerHTML='<span class="big">['+band+'] '+big+'</span><span>'+body+'</span>'+(link?'<p style="margin:.6em 0 0"><a class="cta" href="'+link+'"'+(link.indexOf('/go/')>-1?' rel="nofollow sponsored noopener"':'')+'>'+label+'</a></p>':'');
+  }
+  function upd(){
+    var when=v('pd1'),where=v('pd2'),bypass=v('pd3');
+    if(where==='one'){
+      card('$0','One fixture only \u2014 not your filter','A single weak fixture is almost never the whole-house filter (that would hit everything). Check that fixture\u2019s aerator screen for mineral buildup and its supply stops \u2014 a 2-minute clean usually fixes it. The filter is off the hook.');return;}
+    if(bypass==='stays'){
+      card('plumber','Your filter is innocent \u2014 look house-side','Pressure staying low in bypass exonerates the filter chain entirely. The leading suspect is a failing or misadjusted PRV (pressure-reducing valve); others are corroded pipe or a municipal supply change \u2014 call your utility to rule that out. This is a plumbing conversation, but you\u2019ve saved yourself from returning a blameless filter.');return;}
+    if(bypass==='returns'){
+      card('under $50','The filter chain is the restriction \u2014 almost certainly the cartridge','Pressure returning in bypass confirms it\u2019s the filter chain. On an established install that means a loaded cartridge \u2014 swap it ($15ish) and pressure should snap back. If a fresh cartridge doesn\u2019t fix it, you may be undersized for your peak demand (run the GPM calculator above). A <a href="/go/sediment" rel="nofollow sponsored noopener">spin-down pre-filter</a> upstream stops the clog cycle from repeating.','#gpm-calc','Check Your Peak GPM \u2192');return;}
+    if(when==='dayone'){
+      card('varies','Day-one loss \u2014 sizing or install, not a worn cartridge','Fresh installs that lose pressure immediately point to three things: an undersized tier for your peak demand (run the GPM calculator above), a shipping plug or valve not fully opened, or a kink/port-reducer bottleneck in the install. Do the bypass test to confirm it\u2019s the chain, then check sizing and valves.','#gpm-calc','Run the GPM Calculator \u2192');return;}
+    // gradual, whole-house, bypass not tried
+    card('under $50','Start with the cartridge, then the bypass test','Months-fine-then-dropped is the classic loaded-cartridge signature \u2014 swap it first (~$15). If that doesn\u2019t restore it, run the 10-minute bypass test: pressure returning in bypass means the chain (undersized or clogged); staying low means the filter\u2019s innocent and it\u2019s house-side (PRV, pipes, supply). Cheapest checks first, always.');
+  }
+  ['pd1','pd2','pd3'].forEach(function(n){[].forEach.call(document.querySelectorAll('input[name="'+n+'"]'),function(el){el.addEventListener('change',upd);});});
+  upd();
+})();
+</script>
+
+<h2 id="why-small">Why the Drop Is So Small (The Physics in Plain Terms)</h2>
+<p>It helps to know <em>why</em> 2&ndash;3 PSI is the honest number, so you trust it. A whole-house filter is a wide, short path — a big tank or a 4.5-inch housing, not a narrow straw. Water spreads across a large cross-section of media and passes through slowly per square inch, so the energy it gives up is small. Compare that to a faucet aerator or a showerhead, which deliberately restrict flow to a fraction of an inch — those cost far more pressure than your whole-house filter does, and nobody blames them. The filter looks scary because it's big and new and sits on your main line. But size is exactly why it's gentle: a large filter is a wide road, and wide roads don't cause traffic. The drop only grows when the media loads with sediment and that wide road narrows — which is a maintenance event, not a design flaw, and it resets with a cartridge.</p>
+
+<h2 id="two-showers">The Two-Shower Test (What Buyers Actually Worry About)</h2>
+<p>Strip away the jargon and here's the real question every buyer is asking: can two people shower at once without one of them getting blasted or dribbled when the other turns on a tap? That's a flow question, and it has a clean answer. Two simultaneous showers pull roughly 4&ndash;5 GPM combined. Add a toilet refill or the kitchen tap and you're near 6&ndash;7. Every service tier on the sizing list clears that with room — even the entry 9 GPM system handles two showers plus a fixture comfortably. The households that feel a problem aren't the two-shower homes; they're the big houses that bought a small tier, or any house running a clogged cartridge. Size to your real peak, keep the cartridge fresh, and the two-shower test passes without drama. My house runs exactly this — two showers, and nobody has ever yelled about it.</p>
+
+<h2 id="softener">Does the Softener Cause Pressure Loss Too?</h2>
+<p>Searches conflate filters and softeners, so the honest answer: yes, a softener adds its own modest drop, and it counts toward that system total. A healthy resin bed and a right-sized valve cost a few PSI. That's the same order as the filter. The softener-specific pressure <em>culprit</em> is different though — it's a fouled or channeled resin bed choking flow, or an undersized valve, and if beads are turning up in your aerators that's a broken riser letting media escape. That's a failure symptom, not normal drop, and it has its own diagnosis in my <a href="/water-softener-failing-signs/#sign-5">failing-signs guide, sign 5</a> — the sibling to this page's tree. One-line rule: normal softener drop is a few PSI you won't feel; a softener <em>causing</em> a noticeable drop is a fouling or hardware problem to diagnose, not tolerate.</p>
+
+<h2 id="edge-cases">Booster Pumps and the Genuinely Low-Supply Case</h2>
+<p>The honest edge case: if your incoming municipal or well pressure is genuinely low — below ~40 PSI at the meter before any equipment — a filter's small drop can be the last straw, and the fix isn't a different filter. It's a <strong>booster pump</strong>. That raises the whole house's supply. Important honesty here: a booster is the right tool for genuinely low <em>supply</em>, and the wrong tool as a band-aid for an <em>undersized filter</em> — pumping harder through a too-small system just masks a sizing mistake you'll keep paying for in cartridges. Diagnose which problem you have (the gauge and bypass test tell you) before spending on a pump. If your static supply is healthy 50&ndash;60 PSI and you still feel drops, the answer is sizing or a cartridge, not more pump.</p>
+
+<h2 id="checklist">The Pre-Purchase Checklist (Fear-Dissolver)</h2>
+<p>For the buyer, the whole anxiety dissolves into two numbers gathered before you shop. <strong>One: your static PSI.</strong> A $10&ndash;$15 gauge on any hose bib, read with no water running. That's your baseline. It tells you immediately whether you have healthy supply (40&ndash;60+) or a pre-existing problem a filter would only expose. <strong>Two: your peak GPM.</strong> The calculator above, or a bucket test at an unfiltered faucet (time filling a one-gallon container). With those two numbers you match a flow tier with confidence and the trickling-shower fear evaporates — and if you're installing it yourself, my <a href="/whole-house-water-filter-installation/">DIY install guide</a> walks the whole afternoon — because you're no longer guessing, you're sizing. That $12 gauge was the best diagnostic dollar I spent, before <em>and</em> after install.</p>
+
+<h2 id="faq" class="faq">Pressure &amp; Flow FAQ</h2>
+
+<h3>How much pressure does a whole house filter drop?</h3>
+<p>A properly sized system drops about 2&ndash;3 PSI at normal flow — unnoticeable against typical 40&ndash;60 PSI supply. My own gauge read 66 before and 63 after install. A drop of 10&ndash;15+ PSI isn't normal filter effect; it's a clog, an undersized system, or a pre-existing plumbing restriction.</p>
+
+<h3>Why do I have low pressure after a new filter install?</h3>
+<p>Day-one loss usually means one of three things: an undersized tier for your peak demand, a shipping plug or valve not fully opened, or a kink or port-reducer bottleneck in the install. Run the bypass test to confirm it's the filter chain, then check sizing and that every valve is fully open.</p>
+
+<h3>What GPM do I need for a 3-bathroom house?</h3>
+<p>A ~9 GPM service-flow system covers a 1&ndash;3 bathroom home's realistic peak demand — a couple of showers plus an appliance — with headroom. Size to peak simultaneous use, not your fixture total; nobody runs every fixture at once. The calculator above estimates your specific peak.</p>
+
+<h3>Can a water softener cause low water pressure?</h3>
+<p>A healthy softener adds only a few PSI. A softener <em>causing</em> a noticeable drop has a problem: a fouled or channeled resin bed, an undersized valve, or a broken riser leaking beads into your plumbing. That's a failure to diagnose, not normal drop — it's covered in my failing-signs guide.</p>
+
+<h3>How do I check if my filter cartridge is clogged?</h3>
+<p>Two ways. With gauges before and after the housing, a gap of 10&ndash;15+ PSI across the filter means it's loaded. With one gauge or none, run the bypass test — if pressure returns with the filter bypassed, the chain is restricting, and on an established install that's almost always a cartridge due for changing.</p>
+
+<h3>Do bigger filters help water pressure?</h3>
+<p>Yes — a larger housing and higher service-flow rating pass more water with less restriction, which is exactly what "sizing up a tier" means. A 20-inch Big Blue housing flows more than a slim 10-inch model, and a 17 GPM system won't choke where a 9 GPM one would on a big house. Bigger helps flow; it doesn't change the tiny PSI drop.</p>
+
+<h3>Is 2&ndash;3 PSI drop really unnoticeable?</h3>
+<p>Yes, against normal 40&ndash;60 PSI supply — it's a few percent, below the threshold you'd feel at a showerhead. What people feel and call "pressure loss" is almost always flow (GPM) choked by an undersized system at peak use, or a clogged cartridge — not the small, steady PSI drop of a well-sized filter.</p>
+
+<h2 id="next-steps">Next Steps, By Reader</h2>
+<p><strong>Still shopping?</strong> Gather your two numbers — static PSI off a hose-bib gauge, peak GPM from the calculator — and match the flow tier to your house on <a href="/">the combo review</a>. Sized right, the filter disappears into your plumbing and the fear was unfounded; my showers never noticed. <strong>Diagnosing a drop?</strong> Change the cartridge, run the ten-minute bypass test, and let the diagnoser route you — the answer is a $15 cartridge far more often than a plumber, and sometimes it's the happy verdict that your filter was innocent all along. Either way, the gauge is the tool: $12 turns every pressure question on this page from a worry into a reading.</p>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Do Whole House Filters Reduce Water Pressure? The Honest Answer, With Numbers",
+  "author": {"@type": "Person", "name": "Kelly McClendon", "url": "https://waterfiltersoftenercombo.com/about/", "image": "https://waterfiltersoftenercombo.com/author-kelly.jpg"},
+  "publisher": {"@type": "Organization", "name": "WaterFilterSoftenerCombo.com"},
+  "datePublished": "2026-07-03",
+  "description": "Do whole house filters reduce water pressure? Yes, about 2-3 PSI when sized right - unnoticeable. The psi-vs-GPM truth, the sizing math, and a pressure-drop diagnosis tree."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How much pressure does a whole house filter drop?","acceptedAnswer":{"@type":"Answer","text":"A properly sized system drops about 2-3 PSI at normal flow - unnoticeable against typical 40-60 PSI supply. A drop of 10-15+ PSI isn't normal filter effect; it's a clog, an undersized system, or a pre-existing plumbing restriction."}},
+    {"@type":"Question","name":"Why do I have low pressure after a new filter install?","acceptedAnswer":{"@type":"Answer","text":"Day-one loss usually means an undersized tier for your peak demand, a shipping plug or valve not fully opened, or a kink or port-reducer bottleneck. Run the bypass test to confirm it's the filter chain, then check sizing and valves."}},
+    {"@type":"Question","name":"What GPM do I need for a 3-bathroom house?","acceptedAnswer":{"@type":"Answer","text":"A ~9 GPM service-flow system covers a 1-3 bathroom home's realistic peak demand with headroom. Size to peak simultaneous use, not fixture total - nobody runs every fixture at once."}},
+    {"@type":"Question","name":"Can a water softener cause low water pressure?","acceptedAnswer":{"@type":"Answer","text":"A healthy softener adds only a few PSI. A softener causing a noticeable drop has a problem: a fouled or channeled resin bed, an undersized valve, or a broken riser leaking beads. That's a failure to diagnose, not normal drop."}},
+    {"@type":"Question","name":"How do I check if my filter cartridge is clogged?","acceptedAnswer":{"@type":"Answer","text":"With gauges before and after the housing, a gap of 10-15+ PSI means it's loaded. With one gauge or none, run the bypass test - if pressure returns with the filter bypassed, the chain is restricting, almost always a cartridge due for changing."}},
+    {"@type":"Question","name":"Do bigger filters help water pressure?","acceptedAnswer":{"@type":"Answer","text":"Yes - a larger housing and higher service-flow rating pass more water with less restriction, which is what sizing up a tier means. A 17 GPM system won't choke where a 9 GPM one would on a big house. Bigger helps flow, not the tiny PSI drop."}},
+    {"@type":"Question","name":"Is 2-3 PSI drop really unnoticeable?","acceptedAnswer":{"@type":"Answer","text":"Yes, against normal 40-60 PSI supply - a few percent, below what you'd feel at a showerhead. What people call pressure loss is almost always flow choked by an undersized system at peak use, or a clogged cartridge."}}
+  ]
+}
+</script>

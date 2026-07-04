@@ -1,0 +1,231 @@
+<article>
+<h1>What Size Water Softener Do I Need? The Calculator That Counts Iron and Tells the Capacity Truth</h1>
+
+<div class="byline">
+  <img src="/author-kelly.jpg" alt="Kelly McClendon, founder of WaterFilterSoftenerCombo.com" width="52" height="52">
+  <div class="who">
+    <a href="/about/">Kelly McClendon</a> <span class="role">&middot; Founder, WaterFilterSoftenerCombo.com</span><br>
+    <span class="role">Mesa, AZ &middot; sized my own system at ~19 gpg — after two dealers sized it wrong</span>
+  </div>
+</div>
+<p class="updated">Last updated: July 2026</p>
+
+<p>Answer first: run your numbers below — the calculator adjusts for iron, converts ppm automatically, and sizes on <em>salt-efficient</em> capacity instead of the sticker number, which is the honesty step most sizing tools skip. The full math, and why it works, follows.</p>
+
+<p class="disclosure-line">Reader-supported: this page contains affiliate links and I may earn a commission at no cost to you. The formula works for any brand's softener either way. <a href="/affiliate-disclosure/">Details</a>.</p>
+
+<div class="tool" id="gc-calc">
+  <span class="kicker">Interactive Tool</span>
+  <h3>Grain capacity calculator</h3>
+  <label for="gc-hard">Your water hardness</label>
+  <div style="display:flex;gap:8px;align-items:center">
+    <input type="number" id="gc-hard" min="1" max="900" value="15" step="0.5" style="flex:1">
+    <select id="gc-unit" style="flex:1">
+      <option value="gpg" selected>gpg</option>
+      <option value="ppm">ppm / mg&frasl;L (I'll convert &divide;17.1)</option>
+    </select>
+  </div>
+  <label for="gc-people">People in the household</label>
+  <input type="number" id="gc-people" min="1" max="12" value="4">
+  <label for="gc-iron">Clear-water iron, if any (ppm)</label>
+  <input type="number" id="gc-iron" min="0" max="10" value="0" step="0.5">
+  <label for="gc-days">Regeneration target</label>
+  <select id="gc-days">
+    <option value="6">Every ~6 days</option>
+    <option value="7" selected>Weekly (recommended)</option>
+    <option value="8">Every ~8 days</option>
+  </select>
+  <label style="font-weight:400"><input type="checkbox" id="gc-unknown"> I don't actually know my hardness</label>
+  <div class="result" aria-live="polite" id="gc-result">
+    <span class="big">Recommended: SS4 (48,000-grain tier)</span>
+    <span>Daily load: 15 gpg &times; 4 people &times; 75 gal = <strong>4,500 grains/day</strong> &rarr; &times;7 days = <strong>31,500 grains</strong>. Why SS4 and not "32k": at efficient salt dosing a 32,000-grain unit really delivers ~22,000 — your load needs the 48k tier's honest ~33,000.</span>
+    <p style="margin:.6em 0 0"><a class="cta" href="/go/softener" rel="nofollow sponsored noopener">See the Matching SS Size &rarr;</a></p>
+  </div>
+  <p class="fineprint">Sizes on salt-efficient capacity (~22k / ~33k / ~55k for the 32k / 48k / 80k tiers at ~6 lb/ft&sup3; dosing). Iron adds 4 gpg per ppm (some pros use 5 for extra margin — the fineprint below explains). Formula shown in every result so you can take it to any seller.</p>
+</div>
+<script>
+(function(){
+  var h=document.getElementById('gc-hard'),u=document.getElementById('gc-unit'),p=document.getElementById('gc-people'),
+      fe=document.getElementById('gc-iron'),dy=document.getElementById('gc-days'),un=document.getElementById('gc-unknown'),
+      res=document.getElementById('gc-result');
+  function upd(){
+    if(un.checked){
+      res.innerHTML='<span class="big">Stop \u2014 the formula can\u2019t run without your gpg</span><span>Every number this calculator produces hangs on the hardness input. A lab test is the accuracy step; your city\u2019s report is the free (rougher) one \u2014 both covered below.</span><p style="margin:.6em 0 0"><a class="cta" href="/go/test-kit" rel="nofollow sponsored noopener">Get a Lab Water Test \u2192</a></p>';
+      return;
+    }
+    var raw=parseFloat(h.value)||0;
+    var gpg=u.value==='ppm'?raw/17.1:raw;
+    var iron=parseFloat(fe.value)||0,people=Math.max(1,parseInt(p.value)||4),days=parseInt(dy.value);
+    if(iron>3){
+      res.innerHTML='<span class="big">Hold on \u2014 '+iron+' ppm iron is beyond softener-alone territory</span><span>Above ~3 ppm, resin fouls fast no matter how big the tank; the honest fix is dedicated iron filtration ahead of any softener. Start with the <a href="/best-well-water-filter-and-softener-combo/">well water iron guide</a> \u2014 sizing a bigger softener would just be selling you a slower failure.</span>';
+      return;
+    }
+    var comp=Math.round((gpg+iron*4)*10)/10;
+    var daily=Math.round(comp*people*75);
+    var req=daily*days;
+    var tier,eff;
+    if(req<=22000){tier='SS1 (32,000-grain tier)';eff='~22,000';}
+    else if(req<=33000){tier='SS4 (48,000-grain tier)';eff='~33,000';}
+    else if(req<=55000){tier='SS+ (80,000-grain tier)';eff='~55,000';}
+    else{tier='SS+ (80,000-grain tier) \u2014 and talk to a specialist';eff='~55,000';}
+    var why=req>55000?' Your load exceeds even the largest tier\u2019s efficient capacity \u2014 at this scale (very large household on very hard water) get a professional spec, possibly twin units.':' Why: at efficient salt dosing this tier honestly delivers '+eff+' grains \u2014 your load fits with the reserve a metered valve needs.';
+    res.innerHTML='<span class="big">Recommended: '+tier+'</span><span>Daily load: '+comp+' gpg'+(iron>0?' (incl. +'+(iron*4)+' iron adjustment)':'')+' \u00d7 '+people+' people \u00d7 75 gal = <strong>'+daily.toLocaleString()+' grains/day</strong> \u2192 \u00d7'+days+' days = <strong>'+req.toLocaleString()+' grains</strong>.'+why+'</span><p style="margin:.6em 0 0"><a class="cta" href="/go/softener" rel="nofollow sponsored noopener">See the Matching SS Size \u2192</a></p>';
+    var ev=document.getElementById('rf-daily');if(ev){ev.value=daily;ev.dispatchEvent(new Event('input'));}
+  }
+  [h,u,p,fe,dy,un].forEach(function(el){el.addEventListener('input',upd);el.addEventListener('change',upd);});
+})();
+</script>
+
+<h2 id="size-chart">The Skimmer's Size Chart</h2>
+<p>Built on the same salt-efficient math as the calculator (assumes weekly regeneration, no iron — iron changes everything, see <a href="#iron-adjustment">below</a>):</p>
+<div class="table-wrap"><table>
+<tr><th>Hardness &darr; / Household &rarr;</th><th>2 people</th><th>4 people</th><th>6 people</th></tr>
+<tr><td>5 gpg (moderately hard)</td><td>SS1 (32k)</td><td>SS1 (32k)</td><td>SS1 (32k)</td></tr>
+<tr><td>10 gpg (hard)</td><td>SS1 (32k)</td><td>SS1 (32k)*</td><td>SS4 (48k)</td></tr>
+<tr><td>15 gpg (very hard)</td><td>SS1 (32k)</td><td>SS4 (48k)</td><td>SS+ (80k)</td></tr>
+<tr><td>20 gpg (Mesa-grade)</td><td>SS1 (32k)*</td><td>SS+ (80k)</td><td>SS+ (80k)</td></tr>
+<tr><td>25 gpg (extreme)</td><td>SS4 (48k)</td><td>SS+ (80k)</td><td>SS+ (80k)&dagger;</td></tr>
+</table></div>
+<p class="fineprint">*At the tier's efficient ceiling — buying up one tier is the safer money. &dagger;Beyond ~55,000 weekly grains, get a professional spec. Chart values match the calculator exactly.</p>
+
+<h2 id="what-grains-measure">What Grain Capacity Actually Measures</h2>
+<p>A "grain" is a unit of hardness minerals — calcium and magnesium — and a softener's grain capacity is how many of them its resin bed can hold before it's full and needs to regenerate (flush the minerals to the drain and recharge with sodium). That's the entire concept: a 32,000-grain softener is a bucket that holds 32,000 grains of captured hardness. (Curious what the bucket is physically doing? The bead-level story is my <a href="/how-does-a-water-softener-work/#ion-exchange">how a softener works</a> explainer.) Your job is matching bucket size to how fast your household fills it — which is why the formula below multiplies your water's hardness by how much water your people actually run through it.</p>
+
+<h2 id="the-formula">The Formula, Step by Step</h2>
+<p>Three multiplications, no mystery:</p>
+<p><strong>Step 1 — daily grain load:</strong> hardness (gpg) &times; people &times; 75 gallons/person/day. Worked example at typical very-hard city water: <strong>15 gpg &times; 4 people &times; 75 gal = 4,500 grains per day.</strong> (Why 75 when the EPA's WaterSense data puts average indoor use nearer 60? Because sizing uses the industry's 75-gallon convention deliberately — it bakes in laundry days, guests, and teenagers, and an undersized softener fails you weekly while a modest buffer costs nothing.)</p>
+<p><strong>Step 2 — capacity between regenerations:</strong> multiply by your regeneration target. Aim for roughly weekly — 6 to 8 days. Frequent enough that the resin stays active and any iron gets flushed before it settles in; infrequent enough that you're not burning salt. <strong>4,500 &times; 7 = 31,500 grains.</strong></p>
+<p><strong>Step 3 — pick the tier, honestly:</strong> and here's where nearly every guide on this search — including one ranking above this page — gets it wrong. They'd tell you 31,500 grains means "a 32,000-grain softener is the perfect size." It isn't, and the next section is the reason.</p>
+
+<h2 id="salt-efficient">Nominal vs Salt-Efficient Capacity: The Truth in the Sticker Number</h2>
+<p>A "32,000-grain" softener only delivers 32,000 grains when its regeneration is loaded with a heavy salt dose — around 18 lbs per cycle — which is the least efficient way to run one. Program the same unit at an efficient dose (~6 lbs per cubic foot of resin, the setting any competent installer and every forum veteran will steer you toward), and it honestly delivers roughly <strong>20,000&ndash;24,000 grains per cycle</strong>. The sticker number isn't a lie; it's a maximum measured at a salt dose you should never use.</p>
+<p>So size on efficient capacity: figure <strong>~22,000 for a "32k," ~33,000 for a "48k," ~55,000 for an "80k."</strong> Our worked example's 31,500-grain weekly load doesn't fit a 32k unit at efficient dosing — it fits the 48k tier, running clean weekly cycles at a salt dose that keeps your grains-per-pound efficiency high (roughly 3,700&ndash;5,000 grains per pound at efficient settings, versus under 2,000 at the sticker-rating dose). This one paragraph is the difference between a softener that quietly saves salt for fifteen years and one that either regenerates every fourth day or gets programmed wastefully to survive. It's also why the calculator above and the <a href="/best-salt-based-water-softener/">rankings in my full salt-based softener guide</a> both refuse to size on nominal numbers.</p>
+
+<h2 id="iron-adjustment">The Iron Adjustment (and the Manganese One Nobody Mentions)</h2>
+<p>Clear-water iron loads onto softening resin far harder than its ppm suggests, so the sizing convention is: <strong>add 4 gpg of hardness for every 1 ppm of iron (why well hardness works this way is my <a href="/well-water-hardness/">well hardness guide</a>; the full picture is my <a href="/well-water-treatment-system/">well treatment guide</a>, and choosing an iron system is my <a href="/best-iron-filter-well-water/">iron filter guide</a>)</strong> — some pros use 5 for extra margin, and the safer number costs you nothing if it bumps you toward a tier you were near anyway. One ppm of iron on 12 gpg water means you size for 16&ndash;17 gpg, full stop. Manganese, iron's overlooked sibling, counts too: <strong>add ~2 gpg per ppm.</strong></p>
+<p>Two honest boundaries. First, <strong>above roughly 3 ppm of iron, stop sizing softeners</strong> — resin fouls fast at that loading no matter the tank size, and the right answer is dedicated iron filtration upstream, covered in my <a href="/best-well-water-filter-and-softener-combo/">well water iron guide</a>. A bigger softener there isn't a solution; it's a slower failure. Second, the iron adjustment assumes <em>clear-water</em> (dissolved) iron — if your water comes out of the tap already orange, that's precipitated iron and a different treatment conversation entirely.</p>
+
+<h2 id="ppm-trap">The ppm Trap That Silently Wrecks DIY Math</h2>
+<p>City water reports usually state hardness in mg/L (same thing as ppm); test strips and softener heads usually speak gpg. The conversion is <strong>ppm &divide; 17.1 = gpg</strong> — and skipping it is catastrophic in either direction. Read "180" off your city report and treat it as gpg, and you'll buy a commercial-sized unit for 10.5 gpg water; read a 15 gpg strip result as ppm and you'll buy a toy. The calculator's unit toggle exists because this single confusion probably mis-sizes more softeners than every other mistake combined.</p>
+
+<h3>The same truth in grains-per-pound</h3>
+<p>If you prefer efficiency language: at the sticker-rating salt dose, a softener removes under 2,000 grains per pound of salt — the least efficient operating point on the curve. At the ~6 lb efficient dose, the same resin delivers roughly 3,700&ndash;5,000 grains per pound. Same tank, same resin, more than double the salt mileage — the only cost is accepting the honest capacity number instead of the sticker. Every "high-efficiency" marketing claim in this industry is, underneath, just a system programmed to live on the good end of this curve. Now you can program any of them there yourself.</p>
+
+<h2 id="oversizing">Why Bigger Isn't Safer: The Case Against Oversizing</h2>
+<p>Undersizing gets all the warnings, so here's the other ditch, which most sizing guides won't mention because bigger units carry bigger price tags. A softener sized far beyond your load regenerates rarely — every two, three, four weeks — and that's genuinely bad for it: water sits in the resin bed, channels form so flow shortcuts through the same paths, chlorine works on resin that isn't getting refreshed, and any trace iron settles in and stays, fouling the bed the slow way. You also paid hundreds of dollars for capacity that exists to hurt you. The practical rule when your math lands between sizes: <strong>go up one tier, never two.</strong> The regeneration visualizer below makes this argument as a picture.</p>
+
+<div class="tool" id="rf-viz">
+  <span class="kicker">Interactive Tool</span>
+  <h3>Regeneration frequency visualizer</h3>
+  <label for="rf-daily">Your daily grain load (auto-fills from the calculator above)</label>
+  <input type="number" id="rf-daily" min="200" max="20000" value="4500" step="100">
+  <div class="result" aria-live="polite">
+    <p style="margin:.2em 0"><strong>SS1 (efficient ~22k):</strong> <span id="rf-1t">regenerates every ~4.9 days — workable, little headroom</span></p>
+    <div style="background:var(--line);border-radius:6px;height:18px;overflow:hidden"><div id="rf-1b" style="height:100%;width:20%;background:var(--copper)"></div></div>
+    <p style="margin:.6em 0 .2em"><strong>SS4 (efficient ~33k):</strong> <span id="rf-4t">every ~7.3 days — the right-sized weekly rhythm</span></p>
+    <div style="background:var(--line);border-radius:6px;height:18px;overflow:hidden"><div id="rf-4b" style="height:100%;width:30%;background:var(--teal)"></div></div>
+    <p style="margin:.6em 0 .2em"><strong>SS+ (efficient ~55k):</strong> <span id="rf-pt">every ~12.2 days — fine, but capacity you may be paying for without needing</span></p>
+    <div style="background:var(--line);border-radius:6px;height:18px;overflow:hidden"><div id="rf-pb" style="height:100%;width:50%;background:#9fb3ba"></div></div>
+  </div>
+  <p class="fineprint">Green zone: ~4&ndash;14 days. Under 4 = undersized, burning salt on constant cycles. Beyond ~2 weeks = oversized territory; past ~25 days the resin-stagnation risks above are real, especially with any iron.</p>
+</div>
+<script>
+(function(){
+  var d=document.getElementById('rf-daily');
+  function row(cap,txtId,barId){
+    var daily=Math.max(200,parseInt(d.value)||4500);
+    var days=Math.round(cap/daily*10)/10;
+    var msg,color;
+    if(days<4){msg='every ~'+days+' days — undersized: constant regens burning salt and water';color='#c0392b';}
+    else if(days<=14){msg='every ~'+days+' days — '+(days<=9?'the right-sized weekly rhythm':'right-sized, relaxed cycle');color='var(--teal)';}
+    else if(days<25){msg='every ~'+days+' days — oversized territory: paying for capacity you don\u2019t need';color='#b8860b';}
+    else{msg='every ~'+days+' days — stagnation risk: resin sits unrefreshed this long, especially bad with iron';color='#c0392b';}
+    document.getElementById(txtId).textContent=msg;
+    var bar=document.getElementById(barId);
+    bar.style.width=Math.min(100,days/25*100)+'%';
+    bar.style.background=color;
+  }
+  function upd(){row(22000,'rf-1t','rf-1b');row(33000,'rf-4t','rf-4b');row(55000,'rf-pt','rf-pb');}
+  d.addEventListener('input',upd);
+  upd();
+})();
+</script>
+
+<h2 id="dealer-quotes">The Two Dealer Quotes That Sized My House Wrong</h2>
+<p>Why I trust the formula over the salesperson: when I was shopping, I collected quotes before I knew this math, and the two I got missed in opposite directions. Dealer one quoted a 32k unit off "family of four, standard package" — no hardness question asked. On my ~19 gpg water, that unit would have regenerated every three to four days at efficient dosing, burning salt on a treadmill; the quote wasn't sized to my water because nobody measured my water. Dealer two tested (credit for that), then quoted an 80,000-grain unit "so you never have to think about it" — double what my load needs, at a several-hundred-dollar premium, regenerating so rarely on my usage that the stagnation problems in the previous section become live risks. One undersold the water; one oversold the tank; both were confident.</p>
+<p>The pattern to take from it: a seller who doesn't ask for your gpg is guessing, and a seller who answers every sizing question with "bigger" is selling. The four questions worth stealing for any sizing call are in my <a href="/springwell-vs-softpro/">SoftPro comparison</a> — and the formula on this page is the referee for whatever answers come back.</p>
+
+<h2 id="spec-sheet">Reading a Spec Sheet After This Page</h2>
+<p>One quiet payoff of learning the math: softener spec sheets stop being noise. "1.0 cu ft resin" now translates (one cubic foot &asymp; the "32k" nominal tier, ~22k efficient). A capacity table showing different grain numbers at different salt settings is the nominal-vs-efficient curve printed honestly — and a brand that publishes that table is telling you the truth by default. A spec page that prints only the single big number is printing the 18-lb figure and hoping. You now know which question to ask: <em>"what's the capacity at a 6-pound salt dose?"</em> — five seconds that identifies whether you're talking to an engineer or a brochure.</p>
+
+<h2 id="reserve">Reserve Capacity: Why Metered Valves Hold Back 20&ndash;25%</h2>
+<p>One more concept that makes the whole system click. A metered valve doesn't run the resin to empty — it triggers regeneration when roughly 75&ndash;80% of capacity is used, holding the rest in reserve. The reason is scheduling: regeneration runs overnight (typically 2 a.m.), so if you cross the trigger line at breakfast, the reserve carries the whole day's water until tonight's cycle. Without it, you'd get hard-water breakthrough at 6 a.m. on exactly the heavy-usage days that exhausted the bed early. This is also quietly another argument for honest sizing — the reserve comes out of your <em>efficient</em> capacity, which the formula's weekly target already accommodates.</p>
+
+<h2 id="find-hardness">Finding Your Real Hardness Number</h2>
+<p>The formula is only as good as its first input, so in order of accuracy: <strong>(1) A proper lab test from your own tap</strong> — the <a href="/go/test-kit" rel="nofollow sponsored noopener">accuracy step</a>, and the only one that captures your street rather than the system average. <strong>(2) Your utility's Consumer Confidence Report</strong> — free, searchable as "<em>your city</em> CCR," but often an average across sources and seasons; my Mesa number swings several gpg through the year depending on the supply mix. <strong>(3) The EWG Tap Water Database</strong> — convenient, same averaging caveat. <strong>(4) Dip strips</strong> — rough ranges only, per even Consumer Reports' guidance; fine for "do I have hard water," not for sizing a $1,500 purchase. If you're near a tier boundary, the lab test pays for itself in avoided mis-sizing alone. (Roughly 85% of US homes have some hardness per the WQA, and the stakes of ignoring it are the Battelle-measured heater-efficiency tax — but sizing right is how you fix it without overpaying.)</p>
+
+<h2 id="which-size">Which SpringWell Size Matches Your Result</h2>
+<p>Mapping calculator outputs to the tiers I cover (specs verified on the manufacturer's live page): <strong>SS1 — 32,000 grains, 11 GPM</strong>: right for most city-water couples and small families up to ~22,000 weekly grains — think 2&ndash;3 people at ordinary hardness. <strong>SS4 — 48,000 grains, 13 GPM</strong>: the family-of-four sweet spot at real hardness — my own 4-person, ~19 gpg math lands here on efficient sizing, and it's the most common right answer this calculator produces. <strong>SS+ — 80,000 grains, 20 GPM</strong>: big households, very hard water, serious (but sub-3 ppm) iron, or 7+ bathroom homes where flow matters as much as capacity. One routing note before you buy a standalone anything: on chlorinated city water, the <a href="/go/combo" rel="nofollow sponsored noopener">filter + salt-based combo</a> protects the resin you just carefully sized — worth pricing first, and the combo-shopper's full rundown is <a href="/">my best water filter and softener combo guide</a>. Salt-restricted area? Different conversation: my <a href="/salt-based-vs-salt-free-water-softener/">salt-based vs salt-free comparison</a> is the honest fork.</p>
+
+<h2 id="edge-cases">Edge Cases Worth a Sentence Each</h2>
+<ul>
+  <li><strong>Between sizes:</strong> up one tier, not two — headroom is cheap, stagnation isn't.</li>
+  <li><strong>Vacation home:</strong> metered valves make oversizing nearly harmless here since regeneration tracks usage, but ask for a valve with a periodic-refresh setting so the bed doesn't sit for months.</li>
+  <li><strong>Softener + septic:</strong> generally compatible per EPA WaterSense materials — and right-sizing minimizes discharge volume, which is the considerate configuration.</li>
+  <li><strong>Family about to grow:</strong> size for the household you'll have in three years, not the one signing the check — one tier of headroom covers a new arrival gracefully.</li>
+  <li><strong>Teen-shower households:</strong> if your water bill says your people run past the 75-gallon convention, use your actual gallons: real bill &divide; days &divide; people, then rerun the formula.</li>
+</ul>
+
+<h2 id="faq" class="faq">Softener Sizing FAQ</h2>
+
+<h3>What size water softener for a family of 4?</h3>
+<p>Run 4 &times; 75 &times; your gpg &times; 7 days. At 10 gpg that's 21,000 grains — a 32k unit right at its efficient ceiling, so consider the 48k. At 15 gpg it's 31,500 — squarely a 48k on honest sizing. At Mesa-grade 20 gpg, 42,000 grains puts you in the 80k tier. There is no universal family-of-four answer; there's a formula.</p>
+
+<h3>How much does 1 ppm of iron change my sizing?</h3>
+<p>Add 4 gpg to your hardness before multiplying (5 if you want extra margin) — so 1 ppm on 12 gpg water means sizing for 16&ndash;17 gpg, roughly a 30% bigger load. Above ~3 ppm, stop adjusting and get dedicated iron filtration instead; no softener size fixes that honestly.</p>
+
+<h3>Is it bad to oversize a water softener?</h3>
+<p>Yes — genuinely, and few sellers say so. Regeneration every few weeks lets water stagnate in the resin bed, invites channeling, and lets trace iron settle in permanently, all while you've paid extra for the privilege. When between sizes go up one tier, never two.</p>
+
+<h3>How often should a water softener regenerate?</h3>
+<p>Roughly weekly — the 6-to-8-day sweet spot the formula targets. Every 2&ndash;3 days means undersized (or hardness programmed wrong); beyond two weeks means oversized. The visualizer above shows where your numbers land across all three tiers. What a wrong frequency signals — and the fixes — is my <a href="/water-softener-regeneration/">regeneration guide</a>.</p>
+
+<h3>How do I convert ppm to grains per gallon?</h3>
+<p>Divide by 17.1. A city report showing 250 mg/L is 14.6 gpg — very hard. Mixing up the units is the most expensive silent error in DIY sizing, which is why the calculator has the toggle built in.</p>
+
+<h3>Is a 32,000-grain softener enough for 15 gpg water?</h3>
+<p>For 1&ndash;2 people, comfortably. For a family of four, no — the weekly load is 31,500 grains, and a "32k" unit delivers ~22,000 at efficient salt dosing. That's the nominal-capacity trap, and it's exactly the mistake several page-one sizing guides make with this precise example.</p>
+
+<h3>Does household size or hardness matter more?</h3>
+<p>They multiply — literally — so neither dominates universally, but hardness has the wider range: household size varies maybe 6&times; between homes while hardness varies 25&times; across the country. It's why a Mesa couple can need the same softener as a Seattle family of five.</p>
+
+<h2 id="verdict">Bottom Line</h2>
+<p>Three multiplications, one iron adjustment, one honest capacity number, and the intimidating wall of 32k/48k/64k stickers becomes a solved problem. Get your real gpg (the <a href="/go/test-kit" rel="nofollow sponsored noopener">lab test</a> if you're anywhere near a boundary), run the calculator, and buy the tier your salt-efficient math actually points to — the matching sizes are all in the <a href="/go/softener" rel="nofollow sponsored noopener">SS lineup</a>, and the full field comparison is my <a href="/best-salt-based-water-softener/">best salt-based water softener guide</a>. Sized right, a softener is the most boring appliance you own. That's the goal.</p>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Size Water Softener Do I Need? The Calculator That Counts Iron and Tells the Capacity Truth",
+  "author": {"@type": "Person", "name": "Kelly McClendon", "url": "https://waterfiltersoftenercombo.com/about/", "image": "https://waterfiltersoftenercombo.com/author-kelly.jpg"},
+  "publisher": {"@type": "Organization", "name": "WaterFilterSoftenerCombo.com"},
+  "datePublished": "2026-07-02",
+  "description": "What size water softener do you need? An iron-adjusted grain capacity calculator built on salt-efficient sizing, plus the formula, the ppm trap, and why oversizing backfires."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What size water softener for a family of 4?","acceptedAnswer":{"@type":"Answer","text":"Run 4 x 75 x your gpg x 7 days. At 10 gpg that's 21,000 grains - a 32k unit at its efficient ceiling, so consider the 48k. At 15 gpg it's 31,500 - squarely a 48k on honest sizing. At 20 gpg, 42,000 grains puts you in the 80k tier."}},
+    {"@type":"Question","name":"How much does 1 ppm of iron change my sizing?","acceptedAnswer":{"@type":"Answer","text":"Add 4 gpg to your hardness before multiplying (5 for extra margin) - 1 ppm on 12 gpg water means sizing for 16-17 gpg, roughly a 30% bigger load. Above ~3 ppm, get dedicated iron filtration instead; no softener size fixes that honestly."}},
+    {"@type":"Question","name":"Is it bad to oversize a water softener?","acceptedAnswer":{"@type":"Answer","text":"Yes - regeneration every few weeks lets water stagnate in the resin bed, invites channeling, and lets trace iron settle in permanently, while you've paid extra. When between sizes go up one tier, never two."}},
+    {"@type":"Question","name":"How often should a water softener regenerate?","acceptedAnswer":{"@type":"Answer","text":"Roughly weekly - the 6-to-8-day sweet spot. Every 2-3 days means undersized or wrongly programmed; beyond two weeks means oversized."}},
+    {"@type":"Question","name":"How do I convert ppm to grains per gallon?","acceptedAnswer":{"@type":"Answer","text":"Divide by 17.1. A city report showing 250 mg/L is 14.6 gpg - very hard. Mixing up the units is the most expensive silent error in DIY sizing."}},
+    {"@type":"Question","name":"Is a 32,000-grain softener enough for 15 gpg water?","acceptedAnswer":{"@type":"Answer","text":"For 1-2 people, comfortably. For a family of four, no - the weekly load is 31,500 grains, and a 32k unit delivers about 22,000 at efficient salt dosing. That's the nominal-capacity trap."}},
+    {"@type":"Question","name":"Does household size or hardness matter more?","acceptedAnswer":{"@type":"Answer","text":"They multiply, so neither dominates universally - but hardness has the wider range: household size varies maybe 6x between homes while hardness varies 25x across the country."}}
+  ]
+}
+</script>

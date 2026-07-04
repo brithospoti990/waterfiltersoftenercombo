@@ -1,0 +1,200 @@
+<article>
+<h1>Water Filter Micron Ratings Explained: Why Smaller Isn't Better</h1>
+
+<div class="byline">
+  <img src="/author-kelly.jpg" alt="Kelly McClendon, founder of WaterFilterSoftenerCombo.com" width="52" height="52">
+  <div class="who">
+    <a href="/about/">Kelly McClendon</a> <span class="role">&middot; Founder, WaterFilterSoftenerCombo.com</span><br>
+    <span class="role">Mesa city water + a Payson cabin on a sediment-happy well &middot; I learned micron sizing by doing it wrong first</span>
+  </div>
+</div>
+<p class="updated">Last updated: July 2026 &middot; Particle sizes and rating definitions sourced inline</p>
+
+<p><strong>A micron rating is the particle size a filter catches — a 5-micron filter stops things 5 microns and larger. The counterintuitive rule: smaller isn't safer, matched is. An over-tight cartridge clogs fast and chokes your water pressure. And "nominal" vs "absolute" ratings mean two very different things at the same number — the spec-sheet trick this page exposes.</strong></p>
+
+<p class="disclosure-line">Reader-supported: this page contains a couple of affiliate links and I may earn a commission at no cost to you. It also tells many city-water readers they need no sediment filter at all. <a href="/affiliate-disclosure/">Details</a>.</p>
+
+<p>My Payson cabin taught me this the expensive way. The well runs sandy, so I did what the internet implied and installed a tight 5-micron cartridge as the <em>first</em> stage — finer must mean cleaner, right? I changed cartridges like coffee filters that month. Loaded solid in a week or two, pressure sagging, another $12 down the housing. The fix wasn't a better cartridge; it was understanding that I'd picked the wrong number for the wrong stage. This article is that lesson, done right: what the micron scale actually means, the nominal-versus-absolute trick that makes two "5-micron" filters different products, and the rule that would have saved me a month of cartridges — filter as coarse as your problem allows, only as fine as your goal requires.</p>
+
+<h2 id="scale">The Scale, Made Visceral</h2>
+<p>A micron (micrometer) is one millionth of a meter, and the numbers only mean something against things you can picture. A human hair runs about 50&ndash;70 microns thick. Your unaided eye can't resolve anything below roughly 40 microns — so a standard 5-micron filter is already trapping particles eight times smaller than you can see. Fine beach sand is 100+ microns; silt spans 2&ndash;50; the cysts that matter for health (Giardia, Cryptosporidium) run roughly 3&ndash;10 microns per CDC size ranges; most bacteria are 0.2&ndash;2 microns; viruses sit far below any sediment cartridge's reach. But the chart is the setup, not the payoff — every competitor stops here, at the ruler. The useful question is which of those particles are actually in <em>your</em> water, and the cheapest rating that removes them without strangling your flow. Hold the scale in mind; we're about to make decisions with it.</p>
+
+<div class="tool" id="ms-explorer">
+  <span class="kicker">Interactive Tool</span>
+  <h3>The micron scale explorer</h3>
+  <p style="margin:.2em 0 .6em">Tap a stage to see what it catches — and what sails through.</p>
+  <div id="ms-bands" style="display:flex;flex-wrap:wrap;gap:6px">
+    <button type="button" class="ms-band" data-b="spin">Spin-down 250&micro;m</button>
+    <button type="button" class="ms-band" data-b="coarse">20&micro;m nominal</button>
+    <button type="button" class="ms-band" data-b="fine">5&micro;m</button>
+    <button type="button" class="ms-band" data-b="abs">1&micro;m absolute</button>
+    <button type="button" class="ms-band" data-b="dissolved" style="opacity:.75">Dissolved &mdash; off scale</button>
+  </div>
+  <div class="result" aria-live="polite" id="ms-result"></div>
+  <div class="table-wrap" style="margin-top:10px"><table id="ms-ladder">
+    <tr><th>Particle</th><th>Size</th><th>Caught by</th></tr>
+    <tr><td>Coarse sand, rust flakes</td><td>100&ndash;500 &micro;m</td><td>spin-down and finer</td></tr>
+    <tr><td>Fine sand, grit</td><td>50&ndash;100 &micro;m</td><td>spin-down and finer</td></tr>
+    <tr><td>Visible limit / coarse silt</td><td>~40 &micro;m</td><td>20 &micro;m and finer</td></tr>
+    <tr><td>Fine silt, scale bits</td><td>5&ndash;20 &micro;m</td><td>5 &micro;m and finer</td></tr>
+    <tr><td>Cysts (Giardia, Crypto)</td><td>3&ndash;10 &micro;m</td><td>1 &micro;m absolute (NSF 53)</td></tr>
+    <tr><td>Most bacteria</td><td>0.2&ndash;2 &micro;m</td><td>UV / certified purifier, not sediment</td></tr>
+    <tr><td>Dissolved: chlorine, lead, hardness, PFAS</td><td>molecular</td><td><a href="/what-does-carbon-filter-remove/">carbon / RO</a> &mdash; no micron reaches these</td></tr>
+  </table></div>
+  <p class="fineprint">Sizes from CDC/USGS/industry ranges. The dissolved row sits pointedly off the particle scale &mdash; physical size is the wrong axis for anything dissolved.</p>
+</div>
+<script>
+(function(){
+  var res=document.getElementById('ms-result');
+  var msg={
+    spin:'<span class="big">Spin-down ~250&micro;m: the bouncer at the door</span><span>Catches sand, grit, and rust flakes &mdash; the coarse stuff that would clog everything downstream. Everything finer than sand sails through, on purpose. Flushable, so the grit never costs you a cartridge.</span>',
+    coarse:'<span class="big">20&micro;m nominal: the workhorse</span><span>Stops coarse silt and the particles right at your visible limit. Long-lived because it isn\u2019t trying to catch fine stuff. This is where most homes\u2019 real sediment removal happens.</span>',
+    fine:'<span class="big">5&micro;m: the common polish</span><span>Fine silt, scale bits, most visible cloudiness. The standard pre-RO and general-purpose choice. Fine enough for clarity, coarse enough to not clog constantly on normal water.</span>',
+    abs:'<span class="big">1&micro;m absolute: only if a goal demands it</span><span>Cyst reduction (Giardia, Crypto) with an NSF/ANSI 53 cert, or final pre-RO/pre-UV polish. Real pressure drop and faster clogging \u2014 the wrong first stage, the right last one when the goal is specific.</span>',
+    dissolved:'<span class="big">Dissolved contaminants: no micron rating reaches these</span><span>Chlorine, chloramine, lead in solution, PFAS, nitrates, hardness \u2014 all molecular, all straight through any cartridge at any micron number. Physical size is the wrong axis. That\u2019s <a href="/what-does-carbon-filter-remove/">carbon and RO territory</a>, not sediment.</span>'
+  };
+  [].forEach.call(document.querySelectorAll('.ms-band'),function(b){
+    b.addEventListener('click',function(){res.innerHTML=msg[b.getAttribute('data-b')];});
+  });
+  res.innerHTML=msg.fine;
+})();
+</script>
+
+<h2 id="nominal-absolute">Nominal vs Absolute: The Spec-Sheet Trick</h2>
+<p>Here's the fact the definition-and-a-chart pages skip, and it's the most consequential thing on this page. Two cartridges both stamped "5 micron," at different prices, are frequently <em>not the same product</em> — because there are two ways to earn that number. <strong>Nominal</strong> means the filter captures approximately its rated size, at a manufacturer-defined efficiency that's commonly cited around 85% but is not standardized — a nominal 5-micron cartridge may let 10&ndash;15% of 5-micron particles through, and one maker's "nominal" isn't calibrated to the next's. <strong>Absolute</strong> means a tighter, test-defined cutoff — typically 99.9% capture at the rated size (SpringWell's own literature states the 85%-vs-99.9% split plainly). Same number on the label; wildly different guarantees behind it.</p>
+<p>When does the difference matter? <strong>Where health is on the line, absolute is non-negotiable.</strong> Cyst reduction for Giardia and Cryptosporidium requires a 1-micron <em>absolute</em> filter — and per the CDC and EPA, genuine cyst protection is validated by NSF/ANSI 53 certification, not by the number alone. The rule to carry: for cysts, look for "1 micron absolute" <em>and</em> the NSF/ANSI 53 cert on the box, not just a "1 micron" stamp. Where does nominal suffice? Everywhere else sediment lives — coarse and mid-stage particle removal, appliance protection, general clarity. Most standard cartridges (polyspun, string-wound, pleated) are nominal, and that is perfectly correct for those jobs. Beware one specific label: a "25-to-1 micron" graded cartridge is a nominal density gradient, not 1-micron-absolute protection — the outer layer catches 25s, the core reaches toward 1, but overall capture at 1 micron is nowhere near 99.9%. If you need real 1-micron protection, the words "absolute" and "NSF/ANSI 53" have to be present.</p>
+
+<h2 id="myth">The Smaller-Is-Better Myth and the Tradeoff Triangle</h2>
+<p>The instinct that sank my first cabin cartridge: if 5 is good, 1 must be better, and 0.5 must be safest. False, and expensively so. Filtration is a tradeoff triangle with three corners in tension — <strong>capture size, flow/pressure, and cartridge life</strong> — and you cannot maximize all three. Tighten the micron rating and you catch smaller particles, yes, but you also raise pressure drop (a 1-micron cartridge commonly adds 8&ndash;12 PSI where a 5-micron adds little; whether a whole system will cost you noticeable pressure is my <a href="/water-filter-pressure-drop/">pressure-drop guide</a>) and you shorten life dramatically, because the cartridge loads with everything the coarser rating would have let pass harmlessly. On my sandy cabin well, a tight first stage wasn't protection — it was a sponge for sand, choking the house and dying in weeks.</p>
+<p>The right-sizing rule, stated once and worth tattooing: <strong>filter as coarse as your problem allows, and only as fine as your goal requires — nothing finer.</strong> Finer than your goal isn't extra safety; it's self-inflicted pressure loss and a cartridge-replacement habit. "Smaller is better" is the myth that sells finer cartridges, and it cost me a month of them before I believed it.</p>
+
+<h2 id="staging">Staged Filtration: The Logic That Multiplies Cartridge Life</h2>
+<p>The professional move — and the one that ended my cabin cartridge bleed — is sequencing coarse to fine so each stage protects the next. Water hits progressively finer media, and the expensive cartridges only ever see the fine particles the cheap stages didn't already remove. The standard ladder:</p>
+<ul>
+  <li><strong>Stage 1 &mdash; spin-down / mesh, ~100&ndash;500 microns.</strong> A flushable screen that catches sand, grit, and rust flakes before they ever touch a cartridge. You open a valve for ten seconds and the sediment blows out the drain — instead of buying another cartridge. A <a href="/go/sediment" rel="nofollow sponsored noopener">spin-down sediment filter</a> is the single highest-leverage $30 in well-water filtration: the sand never reaches the filters that cost money. (Whether your system needs one at all — the honest three-bin triage — is my <a href="/sediment-pre-filter/">sediment pre-filter guide</a>.) This is the stage I was missing.</li>
+  <li><strong>Stage 2 &mdash; nominal 20&ndash;50 micron workhorse.</strong> Handles coarse silt cheaply and lasts, because stage 1 already took the grit. A <a href="/go/sediment-canister" rel="nofollow sponsored noopener">standard sediment canister</a> lives here for most homes.</li>
+  <li><strong>Stage 3 &mdash; 5 micron polish.</strong> Fine silt and cloudiness, the common general-purpose and pre-RO choice.</li>
+  <li><strong>Stage 4 &mdash; 1 micron absolute, ONLY if a specific goal demands it.</strong> Cyst reduction, or final polish ahead of RO or UV. On UV especially, a &le;5-micron pre-filter matters because particles cast shadows that shield microbes from the lamp — sediment staging is part of how UV works, not separate from it.</li>
+</ul>
+<p>Whole-house systems bury this logic inside their design — the reason a combo unit puts a sediment stage ahead of the carbon and softener is exactly this: coarse capture up front protects the expensive media and resin behind it. That staged pre-filtration is part of why the <a href="/">filter-and-softener combo</a> lasts, not an accessory to it.</p>
+
+<h2 id="by-profile">What YOUR Water Actually Needs</h2>
+<p><strong>City water:</strong> here's the honest and rarely-said part — municipal supplies usually carry low sediment, and a standalone sediment filter is often unnecessary. Your system's built-in stage or a single 5-micron carbon block typically covers it. If your city water runs clear, don't buy sediment hardware to solve a problem you don't have. <strong>Well with visible sand or grit:</strong> spin-down first, always, then a nominal cartridge — this is the two-stage setup that fixed my cabin. <strong>Well with fine silt or turbidity (cloudy, no visible particles):</strong> staged nominal cartridges, and a 1-micron final only if clarity still isn't there. <strong>Iron staining:</strong> the honest fork — <em>particulate</em> (already-oxidized, reddish) iron gets caught by sediment filters, but <em>dissolved</em> (clear-water) iron passes through any micron rating untouched, because micron ratings can't see dissolved anything. Iron that stains after sitting is usually dissolved, and that's oxidation/filtration territory, not a cartridge. <strong>Pre-RO:</strong> 5 micron is standard; tighter can starve the membrane of pressure for no benefit. <strong>Pre-UV:</strong> &le;5 micron so the lamp isn't shadowed. <strong>Pre-tankless heater:</strong> a modest sediment stage protects the heat exchanger. When turbidity or iron type is genuinely unclear, a <a href="/go/test-kit" rel="nofollow sponsored noopener">water test</a> settles it before you buy the wrong stage.</p>
+
+<h2 id="cant-do">What Micron Ratings Can't Do</h2>
+<p>The boundary, in one tight block. <strong>Dissolved contaminants pass through any micron rating</strong> — chlorine, chloramine, lead in solution, PFAS, nitrates, and hardness minerals are molecular, and physical size is simply the wrong axis for them. No cartridge number, however small, removes dissolved anything; that's <a href="/what-does-carbon-filter-remove/#no-list">carbon and RO's job</a>, and hardness specifically is the <a href="/best-salt-based-water-softener/">softener's</a>. <strong>Bacteria: careful.</strong> A 1-micron absolute filter reliably reduces cysts, but most bacteria (0.2&ndash;2 microns) are smaller than any standard cartridge captures reliably, and no sediment filter is a microbiological purifier absent specific certification. For microbial safety, UV disinfection or a purifier certified under a protocol like NSF/ANSI P231 is the answer — not a tighter sediment cartridge. This is a health line, so it's worth stating flatly and not medical advice: if a test shows coliform, sediment filtration is not your treatment.</p>
+
+<div class="tool" id="mn-select">
+  <span class="kicker">Interactive Tool</span>
+  <h3>The micron selector</h3>
+  <label>Water source</label>
+  <label style="font-weight:400"><input type="radio" name="mn1" value="city" checked> City water</label>
+  <label style="font-weight:400"><input type="radio" name="mn1" value="well"> Private well</label>
+  <label>What are you seeing?</label>
+  <label style="font-weight:400"><input type="radio" name="mn2" value="clear" checked> Nothing &mdash; just want protection</label>
+  <label style="font-weight:400"><input type="radio" name="mn2" value="grit"> Visible sand or grit</label>
+  <label style="font-weight:400"><input type="radio" name="mn2" value="cloudy"> Cloudy / murky, no visible particles</label>
+  <label style="font-weight:400"><input type="radio" name="mn2" value="stain"> Rust / iron staining</label>
+  <label style="font-weight:400"><input type="radio" name="mn2" value="dissolved"> Chlorine smell / spots / a lead or PFAS worry</label>
+  <label>Downstream equipment to protect?</label>
+  <label style="font-weight:400"><input type="radio" name="mn3" value="none" checked> None in particular</label>
+  <label style="font-weight:400"><input type="radio" name="mn3" value="ro"> RO system</label>
+  <label style="font-weight:400"><input type="radio" name="mn3" value="uv"> UV disinfection</label>
+  <div class="result" aria-live="polite" id="mn-result"></div>
+  <p class="fineprint">Two outcomes here are "you need less than you think" and "micron filters can't help you" &mdash; right-sizing downward is the whole point.</p>
+</div>
+<script>
+(function(){
+  var res=document.getElementById('mn-result');
+  function v(n){var el=document.querySelector('input[name="'+n+'"]:checked');return el?el.value:null;}
+  function card(big,body,link,label){
+    res.innerHTML='<span class="big">'+big+'</span><span>'+body+'</span>'+(link?'<p style="margin:.6em 0 0"><a class="cta" href="'+link+'" rel="nofollow sponsored noopener">'+label+'</a></p>':'');
+  }
+  function upd(){
+    var src=v('mn1'),see=v('mn2'),dn=v('mn3');
+    if(see==='dissolved'){
+      res.innerHTML='<span class="big">Micron filters can\u2019t help &mdash; that\u2019s a dissolved problem</span><span>Chlorine, spots (hardness), lead, PFAS: all dissolved, all straight through any micron rating. The right tools are <a href="/what-does-carbon-filter-remove/">carbon</a> for the chemistry and a <a href="/best-salt-based-water-softener/">softener</a> for the minerals. Sediment sizing isn\u2019t your question.</span>';return;}
+    if(see==='stain'){
+      res.innerHTML='<span class="big">Test first &mdash; iron type decides everything</span><span>Particulate (already-red) iron gets caught by sediment filters; dissolved (clear-then-stains) iron passes through any micron rating. Most staining iron is dissolved \u2014 oxidation/filtration territory, in the <a href="/best-well-water-filter-and-softener-combo/">well guide</a>. A <a href="/go/test-kit" rel="nofollow sponsored noopener">test</a> tells you which you have before you buy the wrong stage.</span>';return;}
+    if(src==='city'&&see==='clear'){
+      res.innerHTML='<span class="big">You likely need no standalone sediment filter</span><span>City water usually carries low sediment. Your system\u2019s built-in stage or a single 5&micro;m carbon block typically covers it \u2014 don\u2019t buy hardware for a problem you don\u2019t have. If chlorine or hardness is the real concern, that\u2019s the <a href="/">combo system\u2019s</a> job, not sediment sizing.</span>';return;}
+    if(see==='grit'){
+      var extra=dn==='ro'?' Add a 5&micro;m polish before the RO membrane.':dn==='uv'?' Finish with a \u22645&micro;m stage so the UV lamp isn\u2019t shadowed.':'';
+      card('Spin-down first, then a nominal cartridge','Visible grit is a two-stage job: a flushable <strong>~250&micro;m spin-down</strong> catches the sand (open a valve, no cartridge), then a <strong>20&micro;m nominal</strong> workhorse handles the rest. This is the exact setup that ended my cabin cartridge bleed.'+extra,'/go/sediment','Spin-Down First Stage \u2192');return;}
+    if(see==='cloudy'){
+      var e2=dn==='ro'?' Keep the final at 5&micro; for RO \u2014 tighter starves the membrane.':dn==='uv'?' \u22645&micro; before UV so light penetrates.':'';
+      card('Staged nominal cartridges, 5&micro;m polish','Cloudiness is fine silt. A <strong>20&micro;m</strong> stage into a <strong>5&micro;m</strong> polish clears most of it without choking pressure. Go to 1&micro; absolute only if clarity still isn\u2019t there \u2014 finer costs pressure and cartridge life.'+e2,'/go/sediment-canister','Sediment Canister \u2192');return;}
+    // clear + well, or protection-only
+    if(dn==='ro'){card('5&micro;m sediment pre-filter','Standard pre-RO spec. A 5&micro;m stage protects the membrane; tighter cuts pressure to the membrane for no benefit. If your well also throws grit, add a spin-down ahead of it.','/go/sediment-canister','Sediment Canister \u2192');return;}
+    if(dn==='uv'){card('\u22645&micro;m ahead of the UV lamp','UV needs clear water \u2014 particles cast shadows that shield microbes from the light. A 5&micro;m sediment stage keeps the quartz sleeve clean and the dose effective. UV, not the cartridge, is what disinfects.','/go/sediment-canister','Sediment Canister \u2192');return;}
+    if(src==='well'){card('A protective 20&micro;m stage, spin-down if any grit','Even a clear-looking well benefits from a modest nominal stage protecting your plumbing and appliances. If you ever see grit, add a flushable spin-down ahead of it \u2014 cheapest insurance in well filtration.','/go/sediment','Spin-Down Filter \u2192');return;}
+    res.innerHTML='<span class="big">Your built-in stage probably has it</span><span>Protective-only on city water rarely needs added sediment hardware \u2014 the whole-house system\u2019s own stage covers it. Spend your attention on the chemistry (chlorine) and minerals (hardness) instead: that\u2019s the <a href="/">combo\u2019s</a> job.</span>';
+  }
+  ['mn1','mn2','mn3'].forEach(function(n){[].forEach.call(document.querySelectorAll('input[name="'+n+'"]'),function(el){el.addEventListener('change',upd);});});
+  upd();
+})();
+</script>
+
+<h2 id="media-types">Depth vs Surface: The Cartridge Type Also Matters</h2>
+<p>One more spec that hides behind the micron number: how the cartridge is built. <strong>Surface filters</strong> — pleated cartridges — trap particles on a large folded outer area. They shine when your sediment is uniform in size, and better ones rinse and reuse. <strong>Depth filters</strong> — the thick string-wound and melt-blown cartridges — catch large particles on the outside and progressively finer ones deeper in, so they handle a <em>range</em> of particle sizes in one cartridge. For a well throwing everything from sand to silt, a depth cartridge outlasts a surface one at the same micron rating, because it isn't clogging a single plane. My cabin's second-stage cartridge is a melt-blown depth filter for exactly this reason. The practical takeaway: match not just the micron number but the construction to your sediment. Uniform particles favor pleated surface media; mixed loads favor depth media. Two cartridges at "5 micron nominal" can behave very differently in the housing depending on which they are.</p>
+
+<h2 id="bypass">The Silent Failure: Bypass</h2>
+<p>A micron rating assumes the water actually goes <em>through</em> the media. If a cartridge is seated wrong, an O-ring is missing, or the housing isn't sealed, water takes the easy path <em>around</em> the filter — and your "1 micron absolute" protection becomes decorative. This is the failure that produces the classic confusion: two neighbors on identical water buy the same cartridge, one gets clear water and one still sees grit. It's rarely the cartridge; it's usually a seal or a seating problem letting water bypass. So before you conclude a rating is "fake," confirm the basics: right cartridge orientation, intact O-ring seated in its groove, housing torqued snug. A perfect micron rating with a bad seal filters nothing. It's the least glamorous line in this whole article and the one most likely to explain a filter that "doesn't work."</p>
+
+<h2 id="life-cost">Cartridge Life, Pressure Drop, and the Staging Cost Math</h2>
+<p>How do you know when to change a cartridge? Pressure, not the calendar. The honest signal is a pressure reading: note your PSI just after a fresh cartridge, and change it when flow noticeably drops or a gauge shows roughly 10&ndash;15 PSI of added drop across the housing. Typical cadences, sediment-load-dependent: a 5-micron whole-house cartridge runs 3&ndash;6 months on average wells, longer on clean supplies, and as little as monthly on heavy sediment. (Full lifespan-by-architecture math is my <a href="/how-long-do-whole-house-filters-last/">filter lifespan guide</a>.) Tighter ratings clog proportionally faster.</p>
+<p>Now the staging math that makes the case for that first spin-down. On my cabin well, running a 5-micron cartridge as the first stage meant changing a ~$12&ndash;$15 cartridge every few weeks — call it $15 a month in the sandy season. A ~$30 flushable spin-down installed ahead of it drops the sand out before it ever loads the cartridge, stretching that cartridge to its normal 3&ndash;6 months. The spin-down pays for itself inside a season and then keeps paying, because a valve you flush for ten seconds is free and a cartridge you replace monthly is not. That's the whole argument for staging in one number: coarse-first isn't just cleaner water, it's cheaper water.</p>
+
+<h2 id="faq" class="faq">Micron Rating FAQ</h2>
+
+<h3>1 micron vs 5 micron: which do I need?</h3>
+<p>For general sediment and appliance protection, 5 micron — it clears fine silt without choking flow or clogging fast. Choose 1 micron only for a specific goal: cyst reduction (and then it must be 1 micron <em>absolute</em>, NSF/ANSI 53 certified) or final pre-RO polish. On ordinary sediment, 1 micron just costs you pressure and cartridge life for no benefit.</p>
+
+<h3>What micron sediment filter do I need for well water?</h3>
+<p>The standard starting point is staged: a 20&ndash;50 micron pre-filter (or a flushable spin-down if you see sand) into a 5-micron polish. That two-stage setup handles most wells without constant cartridge changes. Add a 1-micron absolute or UV stage only if cysts or bacteria are a tested concern.</p>
+
+<h3>Does a 5 micron filter remove chlorine?</h3>
+<p>No. Chlorine is dissolved, and dissolved contaminants pass through every micron rating — physical size is the wrong axis. Chlorine removal is activated carbon's job (catalytic carbon if your city uses chloramine). A micron rating only predicts particle capture, never dissolved-contaminant removal.</p>
+
+<h3>What's the difference between nominal and absolute ratings?</h3>
+<p>Nominal ≈ approximate capture at the rated size, commonly cited around 85% but unstandardized — some same-size particles pass. Absolute ≈ a tighter, test-defined cutoff, typically 99.9% capture. Same number on the label, very different guarantees. For health uses like cysts, absolute plus NSF/ANSI 53 certification is required.</p>
+
+<h3>What micron pre-filter does a UV system need?</h3>
+<p>5 microns or finer. UV disinfects by exposing microbes to light, and suspended particles cast shadows that shield them, so the water must be clear for the dose to land. A 5-micron sediment stage upstream keeps the quartz sleeve clean and the disinfection effective — the sediment filter enables the UV, it doesn't replace it.</p>
+
+<h3>Why did my water pressure drop after adding a filter?</h3>
+<p>Usually one of two things: the cartridge is loaded and needs changing (pressure drop is the change signal), or the micron rating is finer than your water needs, so it clogs fast and restricts flow from day one. If a fresh cartridge still drops pressure noticeably, you're likely over-filtered — step to a coarser rating or add a spin-down pre-stage.</p>
+
+<h3>Does a smaller micron rating mean cleaner water?</h3>
+<p>Only for particles, and only up to your actual goal. Below that, smaller just means more pressure drop and faster clogging — not more safety. And no micron rating touches dissolved contaminants at all. Matched beats smaller: filter as coarse as your problem allows, as fine as your goal requires.</p>
+
+<h2 id="next-steps">Next Steps, By Profile</h2>
+<p>City water running clear: you probably need no sediment hardware — put your attention on chlorine and hardness, which is the <a href="/">combo system's</a> job, not a cartridge's. Well with sand: a <a href="/go/sediment" rel="nofollow sponsored noopener">flushable spin-down</a> ahead of a nominal cartridge is the setup I wish I'd started with. Cloudy or turbid: stage 20 into 5 micron and stop there unless clarity demands the 1-micron absolute. Chasing something dissolved — chlorine, spots, lead, PFAS: micron sizing isn't your question at all; the <a href="/what-does-carbon-filter-remove/">carbon ledger</a> is where that answer lives. And whatever the profile: filter as coarse as your problem allows, only as fine as your goal requires. The cartridge you don't have to change monthly is the one you sized right the first time — a sentence my cabin taught me the hard way, so yours doesn't have to.</p>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Water Filter Micron Ratings Explained: Why Smaller Isn't Better",
+  "author": {"@type": "Person", "name": "Kelly McClendon", "url": "https://waterfiltersoftenercombo.com/about/", "image": "https://waterfiltersoftenercombo.com/author-kelly.jpg"},
+  "publisher": {"@type": "Organization", "name": "WaterFilterSoftenerCombo.com"},
+  "datePublished": "2026-07-03",
+  "description": "Water filter micron ratings explained: what the numbers mean, the nominal-vs-absolute spec-sheet trick, why smaller isn't better, and the staged filtration that saves cartridges."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"1 micron vs 5 micron: which do I need?","acceptedAnswer":{"@type":"Answer","text":"For general sediment and appliance protection, 5 micron. Choose 1 micron only for a specific goal: cyst reduction (1 micron absolute, NSF/ANSI 53 certified) or final pre-RO polish. On ordinary sediment, 1 micron just costs pressure and cartridge life."}},
+    {"@type":"Question","name":"What micron sediment filter do I need for well water?","acceptedAnswer":{"@type":"Answer","text":"Staged: a 20-50 micron pre-filter (or a flushable spin-down for sand) into a 5-micron polish. That handles most wells without constant changes. Add 1-micron absolute or UV only if cysts or bacteria are a tested concern."}},
+    {"@type":"Question","name":"Does a 5 micron filter remove chlorine?","acceptedAnswer":{"@type":"Answer","text":"No. Chlorine is dissolved, and dissolved contaminants pass through every micron rating. Chlorine removal is activated carbon's job (catalytic carbon for chloramine). A micron rating predicts particle capture, never dissolved-contaminant removal."}},
+    {"@type":"Question","name":"What's the difference between nominal and absolute ratings?","acceptedAnswer":{"@type":"Answer","text":"Nominal is approximate capture at the rated size, commonly cited around 85% but unstandardized. Absolute is a tighter test-defined cutoff, typically 99.9%. Same number, different guarantees. For health uses like cysts, absolute plus NSF/ANSI 53 is required."}},
+    {"@type":"Question","name":"What micron pre-filter does a UV system need?","acceptedAnswer":{"@type":"Answer","text":"5 microns or finer. UV disinfects with light, and suspended particles cast shadows that shield microbes, so water must be clear for the dose to land. A 5-micron stage keeps the quartz sleeve clean and the disinfection effective."}},
+    {"@type":"Question","name":"Why did my water pressure drop after adding a filter?","acceptedAnswer":{"@type":"Answer","text":"Either the cartridge is loaded and needs changing (pressure drop is the change signal), or the micron rating is finer than your water needs and clogs fast. If a fresh cartridge still drops pressure, you're likely over-filtered - go coarser or add a spin-down."}},
+    {"@type":"Question","name":"Does a smaller micron rating mean cleaner water?","acceptedAnswer":{"@type":"Answer","text":"Only for particles, and only up to your goal. Below that, smaller just means more pressure drop and faster clogging, not more safety. And no micron rating touches dissolved contaminants. Matched beats smaller."}}
+  ]
+}
+</script>

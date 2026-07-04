@@ -1,0 +1,205 @@
+<article>
+<h1>Is Softened Water Safe to Drink? The Sodium Math, From Someone Who Drinks It</h1>
+
+<div class="byline">
+  <img src="/author-kelly.jpg" alt="Kelly McClendon, founder of WaterFilterSoftenerCombo.com" width="52" height="52">
+  <div class="who">
+    <a href="/about/">Kelly McClendon</a> <span class="role">&middot; Founder, WaterFilterSoftenerCombo.com</span><br>
+    <span class="role">Mesa, AZ &middot; my family drinks softened water daily &middot; I've done the math on our own tap</span>
+  </div>
+</div>
+<p class="updated">Last updated: July 2026 &middot; Every health figure sourced inline</p>
+
+<p><strong>Yes — for most people, softened water is safe to drink, a position shared by the Mayo Clinic and the Water Quality Association. Softening adds about 8 mg of sodium per liter for each grain of hardness removed — under 40 mg per glass even on very hard water. The real exceptions: physician-directed sodium-restricted diets, and infant formula.</strong></p>
+
+<p class="disclosure-line">Reader-supported: this page contains a couple of affiliate links and I may earn a commission at no cost to you. On this topic especially, the honest answer comes before any product — you'll see what I mean. <a href="/affiliate-disclosure/">Details</a>.</p>
+
+<p>The question arrived at my own dinner table. A guest watched me fill glasses from the tap and asked, "wait — isn't that salt water now?" My family drinks softened water every day, at some of the hardest municipal hardness in the country. I owed her a real answer. That night I did the actual math on our tap. This page is that math, with every health number sourced, plus the honest map of who the caveats are genuinely for — written by someone with no interest in scaring you <em>or</em> in waving you off.</p>
+
+<h2 id="how-it-gets-in">How Sodium Gets In (One Paragraph)</h2>
+<p>A softener works by ion exchange: resin beads trade sodium for the calcium and magnesium in your water — roughly two sodium ions released per calcium ion captured. The hardness leaves; a proportional trace of sodium arrives. That's the entire mechanism, and it means the sodium amount isn't a mystery — it's a direct function of how hard your water was to begin with. (The full bead-level story, with the animation, is my <a href="/how-does-a-water-softener-work/#ion-exchange">how a water softener works</a> explainer.)</p>
+
+<h2 id="the-math">The Math at Your Hardness</h2>
+<p>Here's the clean figure, stated carefully because the internet is full of unit accidents. Softening adds approximately <strong>7.85 milligrams of sodium per liter for every grain per gallon (gpg) of hardness removed</strong>. Equivalently: about <strong>1.86 mg per 8-ounce glass per gpg</strong>. (You'll see pages citing "~2 mg per liter" and pages citing "hundreds of ppm of sodium" for the same water. The first mislabels the per-glass figure. The second confuses hardness TDS with sodium. The two versions above reconcile — one glass is roughly a quarter liter.)</p>
+<p>Worked examples, which the calculator below matches exactly:</p>
+<ul>
+  <li><strong>10 gpg (hard):</strong> ~79 mg of sodium per liter — about 19 mg per glass.</li>
+  <li><strong>15 gpg (very hard):</strong> ~118 mg/L — about 28 mg per glass.</li>
+  <li><strong>20 gpg (Mesa-grade):</strong> ~157 mg/L — about 37 mg per glass. Eight glasses a day (roughly two liters) adds about 300 mg.</li>
+</ul>
+
+<div class="tool" id="na-calc">
+  <span class="kicker">Interactive Tool</span>
+  <h3>Sodium in YOUR softened water</h3>
+  <label for="na-hard">Your water hardness (the sodium math starts with your real gpg — if you're guessing, a <a href="/go/test-kit" rel="nofollow sponsored noopener">lab test</a> settles it)</label>
+  <div style="display:flex;gap:8px;align-items:center">
+    <input type="number" id="na-hard" min="1" max="900" value="20" step="0.5" style="flex:1">
+    <select id="na-unit" style="flex:1">
+      <option value="gpg" selected>gpg</option>
+      <option value="ppm">ppm / mg&frasl;L (&divide;17.1)</option>
+    </select>
+  </div>
+  <label for="na-glasses">8-oz glasses you drink per day</label>
+  <input type="number" id="na-glasses" min="1" max="20" value="8">
+  <div class="result" aria-live="polite" id="na-result">
+    <span class="big">~157 mg/L &middot; ~37 mg per glass &middot; ~297 mg from a day's drinking water</span>
+    <span>Context: that daily total is about 13% of the FDA's 2,300 mg daily limit — roughly the sodium in two slices of bread (~150 mg each, USDA). Per glass, it sits near the FDA's "very low sodium" beverage threshold (&le;35 mg/serving) and far under "low sodium" (&le;140 mg).</span>
+  </div>
+  <p class="fineprint">Uses ~7.85 mg/L per gpg removed (&asymp;1.86 mg per 8-oz glass per gpg). Informational only — not medical advice.</p>
+</div>
+<script>
+(function(){
+  var h=document.getElementById('na-hard'),u=document.getElementById('na-unit'),g=document.getElementById('na-glasses'),
+      res=document.getElementById('na-result');
+  function upd(){
+    var raw=parseFloat(h.value)||0;
+    var gpg=u.value==='ppm'?Math.round(raw/17.1*10)/10:raw;
+    var glasses=Math.max(1,parseInt(g.value)||8);
+    var perL=Math.round(7.85*gpg);
+    var perGlass=Math.round(1.86*gpg);
+    var day=perGlass*glasses;
+    var fda=Math.round(day/2300*1000)/10;
+    var bread=Math.round(day/150*10)/10;
+    res.innerHTML='<span class="big">~'+perL+' mg/L \u00b7 ~'+perGlass+' mg per glass \u00b7 ~'+day+' mg from a day\u2019s drinking water</span><span>Context: that daily total is about '+fda+'% of the FDA\u2019s 2,300 mg daily limit \u2014 roughly the sodium in '+bread+' slice'+(bread===1?'':'s')+' of bread (~150 mg each, USDA). Per glass, compare it to the FDA\u2019s beverage thresholds: \u201cvery low sodium\u201d \u2264 35 mg/serving, \u201clow sodium\u201d \u2264 140 mg.</span>';
+  }
+  [h,u,g].forEach(function(el){el.addEventListener('input',upd);el.addEventListener('change',upd);});
+})();
+</script>
+
+<h2 id="context">What the Number Actually Means</h2>
+<p>Numbers need neighbors, so here are the sourced ones. The FDA's recommended daily sodium limit is <strong>2,300 mg</strong>. The American Heart Association's ideal target is <strong>1,500 mg</strong> for most adults. A slice of bread carries roughly <strong>150 mg</strong> (USDA); a cup of 2% milk about <strong>100&ndash;120 mg</strong>. The FDA labels a beverage "low sodium" at <strong>&le;140 mg per serving</strong> and "very low sodium" at <strong>&le;35 mg</strong>. Set my very hard Mesa water against all of that. Each glass adds ~37 mg — a third of a glass of milk, hovering at the "very low sodium" line. A full day's drinking water adds about 300 mg, or two slices of bread. On the moderate hardness most of the country has (USGS classes most supplies well under Mesa's), the numbers are half that or less. That's the honest picture. I'll resist the industry habit of piling on five more reassuring comparisons. The math is what it is, and for most people it's small. Over-reassurance reads like a sales pitch, and this page isn't one.</p>
+
+<h2 id="who-should-care">Who the Caveats Are Actually For</h2>
+<p>Two groups genuinely need to treat this differently, and pretending otherwise would make everything else on this page less trustworthy.</p>
+<p><strong>Physician-directed sodium restriction.</strong> If a doctor has you on a sodium budget — commonly under 1,500&ndash;2,000 mg/day for some heart, kidney, and blood-pressure situations, per Mayo Clinic and AHA guidance — then an extra 200&ndash;300 mg from drinking water is a real line item. And the person who decides whether it matters is your doctor, not a water website. Bring them the number from the calculator above; that's exactly what it's for. <strong>This is not medical advice — talk to your doctor, especially if you're on a sodium-restricted diet.</strong></p>
+<p><strong>Infant formula.</strong> The UK's NHS explicitly advises against using softened water to reconstitute infant formula — a baby's immature kidneys handle sodium poorly, and formula already contains the sodium an infant needs. The practical fixes are easy: an unsoftened bypass tap (many installs already have a hard-water line at the kitchen or outside), low-sodium bottled water marked suitable for formula, or reverse-osmosis water. This one isn't a gray area; just don't use the softened tap for formula.</p>
+<p>For everyone else — the healthy adult population — the WQA's position and mainstream medical framing (Mayo Clinic's softened-water guidance is representative) is that softened water is safe to drink. That's also the answer I live: my family drinks it daily.</p>
+
+<h2 id="not-a-purifier">The Other Half of "Safe": What Softening Doesn't Remove</h2>
+<p>Honesty cuts both directions. A softener didn't make your water risky — but it also didn't make it <em>cleaner</em>. Ion exchange targets hardness minerals and nothing else. Chlorine and chloramine, lead from old service lines, PFAS, nitrates, bacteria — all of it passes through a softener untouched. If any of those are on your mind, that's a filtration conversation, not a softener conversation (the whole-house pairing is <a href="/">my filter and softener combo guide's</a> territory). Framed fairly: the sodium question this page answers is usually the <em>smallest</em> water-quality question in a house; the softener just happens to be the newest appliance, so it gets the suspicion.</p>
+
+<h2 id="serp-errors">Where the Internet's Numbers Go Wrong</h2>
+<p>A warning worth its own section, because it explains the chaos you may have already read. Researching this page, I found top-ranking answers claiming the same 20 gpg water carries anywhere from "about 2 mg per liter" to "342 ppm of sodium." Both are unit accidents. The low one mislabels the per-glass figure as per-liter — off by a factor of four. The high one takes the water's hardness reading (which is expressed as calcium-carbonate-equivalent TDS) and relabels the whole thing "sodium" — more than double the truth, since the exchange math converts 17.1 ppm of hardness into roughly 7.85 mg of sodium. The correct chain is boring and checkable: 1 gpg removed &rarr; ~7.85 mg/L added &rarr; ~1.86 mg per 8-oz glass. Any page whose numbers can't survive that reconciliation — in either the scary or the soothing direction — is doing vibes, not chemistry. Mine reconcile above, on purpose, in both units.</p>
+
+<h2 id="minerals">"But Doesn't It Remove Healthy Minerals?"</h2>
+<p>The mirror-image worry deserves the same straight treatment. Yes — softening removes calcium and magnesium, and both are nutrients. No — that's not a meaningful dietary loss for most people. Mainstream dietary guidance is consistent that food, not water, supplies the overwhelming share of these minerals: a cup of milk or a serving of greens carries more absorbable calcium than liters of hard tap water. The World Health Organization has studied hard-water mineral intake and treats drinking water as, at most, a modest supplementary source. If your diet is reasonably balanced, softened water changes your mineral math about as much as the sodium changes your salt math — which is to say, at the margins. If your diet isn't balanced, the fix was never going to be the tap.</p>
+
+<h2 id="bypass">The Zero-Dollar Option: The Bypass Tap</h2>
+<p>Before anyone buys anything, check what you already have. Many softener installs deliberately leave one or more lines unsoftened — outdoor spigots almost always, and sometimes a dedicated kitchen cold line. If yours has one, every caution on this page has a free answer: formula water, plant water, and rather-not drinking water can all come from the hard tap while the softener protects everything else. Five minutes tracing your lines (or one question to whoever installed it) is worth doing before the RO conversation. The trace itself is simple. Follow the pipe out of the softener's bypass, and note which fixtures branch off before it. Anything upstream of the softener is hard water by definition. My own install skips the outdoor spigots — the cactus never asked for soft water anyway.</p>
+
+<h2 id="taste">Does It Taste Salty?</h2>
+<p>Almost never. Sodium in water becomes tasteable somewhere around 135&ndash;200+ mg/L for typical palates — the EPA's guidance pegs the threshold range for the most taste-sensitive people at 30&ndash;60 mg/L. Moderate-hardness softened water (say, 10 gpg &rarr; ~79 mg/L) sits below nearly everyone's detection; my Mesa-grade ~157 mg/L is where an unusually sensitive palate might register a faint flatness. I don't taste it, and nobody at my dinner table ever has. The "slick" feel in the shower, for the record, isn't salt either — it's the absence of hardness soap scum, a story told in full in the <a href="/how-does-a-water-softener-work/">how-it-works explainer</a>.</p>
+
+<h2 id="potassium">The Potassium Chloride Alternative, Honestly</h2>
+<p>If you want softening with zero added sodium, it exists: regenerate with potassium chloride instead of sodium chloride. It genuinely works, and the honest costs are that KCl runs $20&ndash;$30 per bag versus $6&ndash;$9 for salt (3&ndash;4&times;) and doses about 10&ndash;15% heavier — the full budget math lives in my <a href="/water-softener-salt-usage/">salt usage article</a>. Worth it? For sodium-restricted households that want whole-house consistency, sometimes yes. One symmetry the KCl sellers skip: people with potassium restrictions — certain kidney conditions, some medications — need <em>their</em> doctor's sign-off just as much, per the same mainstream guidance. Neither regenerant is universally "the healthy one." One more practical note for KCl converts: it clumps in humid brine tanks more readily than salt does. Fill it no more than half, and check for bridging a bit more often. The chemistry works identically either way — the resin doesn't care which chloride recharges it. (Weighing salt-based against no-salt entirely? That fork is my <a href="/salt-based-vs-salt-free-water-softener/">salt-based vs salt-free comparison</a>.)</p>
+
+<h2 id="pets-plants">Pets, Plants, and Aquariums</h2>
+<p>Quick, sourced, and calm. <strong>Pets:</strong> veterinary guidance generally considers softened water fine for healthy dogs and cats at typical added-sodium levels. Pets with heart or kidney conditions get the same ask-your-vet answer their humans get from doctors. <strong>Plants:</strong> the genuine exception in the house. Sodium accumulates in soil over time, and plants dislike it — which is why competent installs leave outdoor spigots and irrigation lines unsoftened. (Check yours; most already bypass.) Houseplants do better on bypass, rain, or RO water. <strong>Aquariums</strong> — aquarists were never going to use tap water anyway; RO is the hobby standard because fish need mineral profiles managed precisely, softened or not.</p>
+
+<h2 id="ro-section">How My House Handles Drinking Water (the Both/And Setup)</h2>
+<p>Here's my actual configuration, and the reasoning. The softener treats the whole house — that's the skin, the appliances, the plumbing, the scale. Then one <a href="/go/ro" rel="nofollow sponsored noopener">reverse osmosis tap</a> at the kitchen sink handles drinking and cooking water. An under-sink RO membrane rejects 90&ndash;95% of dissolved solids. That removes most of the softener's added sodium <em>and</em>, more meaningfully, the city-water passengers the softener was never built to touch: chlorine byproducts, lead, PFAS, nitrates. The softener protects the house; that one faucet covers the one job the softener never had. (What whole-house carbon does and doesn't handle upstream is my <a href="/what-does-carbon-filter-remove/">carbon filter ledger</a>.)</p>
+<p>Why did I install it, given that I just spent two thousand words telling you the sodium is small? Because the RO's case was never sodium. It was taste (RO coffee is a one-way door), the city-water extras, and the formula question when we had an infant in the house. If your reasons rhyme with those — or "I'd simply rather not" is reason enough for you, which it legitimately is — that's the profile the RO tap fits. If none of that applies, the honest answer stands: most people need to change nothing, and I'd rather you trust this page than click that link.</p>
+
+<div class="tool" id="tap-router">
+  <span class="kicker">Interactive Tool</span>
+  <h3>The tap decision router</h3>
+  <div id="tr-wrap">
+    <label>1. Has a doctor put you on a sodium-restricted diet?</label>
+    <label style="font-weight:400"><input type="radio" name="tr1" value="n" checked> No</label>
+    <label style="font-weight:400"><input type="radio" name="tr1" value="y"> Yes</label>
+    <label>2. Are you preparing infant formula with tap water?</label>
+    <label style="font-weight:400"><input type="radio" name="tr2" value="n" checked> No</label>
+    <label style="font-weight:400"><input type="radio" name="tr2" value="y"> Yes</label>
+    <label>3. Are you on a potassium restriction (kidney conditions, certain medications)?</label>
+    <label style="font-weight:400"><input type="radio" name="tr3" value="n" checked> No</label>
+    <label style="font-weight:400"><input type="radio" name="tr3" value="y"> Yes — considering potassium chloride</label>
+    <label>4. Does the taste bother you, or would you simply rather not drink the added sodium?</label>
+    <label style="font-weight:400"><input type="radio" name="tr4" value="n" checked> No — just curious</label>
+    <label style="font-weight:400"><input type="radio" name="tr4" value="y"> Yes</label>
+  </div>
+  <div class="result" aria-live="polite" id="tr-result">
+    <span class="big">No change needed — the majority answer</span>
+    <p style="margin:.4em 0">For healthy adults, softened water is considered safe to drink (Mayo Clinic; WQA), and the added sodium at even very hard levels stays a small fraction of the FDA's 2,300 mg daily guidance. Drink from the tap; spend the worry elsewhere.</p>
+  </div>
+  <p class="fineprint">Informational routing, not a diagnosis. The most common outcome is "nothing changes" — on purpose, because it's true.</p>
+</div>
+<script>
+(function(){
+  var wrap=document.getElementById('tr-wrap'),res=document.getElementById('tr-result');
+  function val(n){var el=wrap.querySelector('input[name="'+n+'"]:checked');return el?el.value:null;}
+  function upd(){
+    if(val('tr2')==='y'){
+      res.innerHTML='<span class="big">Use unsoftened water for formula</span><p style="margin:.4em 0">The NHS explicitly advises against softened water for reconstituting infant formula \u2014 immature kidneys and sodium don\u2019t mix. Use an unsoftened bypass tap, low-sodium bottled water marked suitable for infants, or RO water (see <a href="#ro-section">how my house does it</a>). Everything else in the house can stay softened.</p>';
+      return;
+    }
+    if(val('tr1')==='y'){
+      res.innerHTML='<span class="big">Bring the number to your doctor</span><p style="margin:.4em 0">On a physician-directed sodium budget (often under 1,500\u20132,000 mg/day per Mayo Clinic and AHA guidance), your drinking water\u2019s contribution is a real line item \u2014 and the sizing of it is your doctor\u2019s call, not this page\u2019s. Run the calculator above and take that mg/day figure to the appointment; options if they want it lower include potassium chloride regeneration, an unsoftened tap, or RO.</p>';
+      return;
+    }
+    if(val('tr3')==='y'){
+      res.innerHTML='<span class="big">Ask your doctor before switching to potassium chloride</span><p style="margin:.4em 0">KCl regeneration removes the sodium question but adds a potassium one \u2014 and for kidney conditions and certain medications, mainstream guidance routes that decision to your physician just as firmly. The cost math (3\u20134\u00d7 salt\u2019s price) is in the <a href="/water-softener-salt-usage/">salt usage article</a>.</p>';
+      return;
+    }
+    if(val('tr4')==='y'){
+      res.innerHTML='<span class="big">An RO tap at the kitchen sink fits your profile</span><p style="margin:.4em 0">Taste preference and \u201cI\u2019d rather not\u201d are legitimate reasons \u2014 an under-sink RO rejects 90\u201395% of dissolved solids, covering the added sodium and the city-water extras the softener never touched. The setup and reasoning are in <a href="#ro-section">how my house handles drinking water</a>.</p>';
+      return;
+    }
+    res.innerHTML='<span class="big">No change needed \u2014 the majority answer</span><p style="margin:.4em 0">For healthy adults, softened water is considered safe to drink (Mayo Clinic; WQA), and the added sodium at even very hard levels stays a small fraction of the FDA\u2019s 2,300 mg daily guidance. Drink from the tap; spend the worry elsewhere.</p>';
+  }
+  [].forEach.call(wrap.querySelectorAll('input'),function(el){el.addEventListener('change',upd);});
+})();
+</script>
+
+<h2 id="faq" class="faq">Softened Water Safety FAQ</h2>
+
+<h3>Is softened water safe for babies?</h3>
+<p>For drinking by older children, the same general safety applies as for adults. For reconstituting infant formula, no — the NHS explicitly advises against softened water for formula, because an infant's immature kidneys shouldn't take on added sodium. Use an unsoftened bypass tap, appropriate low-sodium bottled water, or RO water for formula.</p>
+
+<h3>Does softened water raise blood pressure?</h3>
+<p>The sodium it adds is real but small — the calculator above puts a number on your exact water. Whether any added sodium matters for <em>your</em> blood pressure is a question for your physician, particularly if you're on a restricted-sodium plan (AHA's ideal target is 1,500 mg/day). This page provides the math; your doctor provides the medical judgment.</p>
+
+<h3>Does boiling softened water remove the sodium?</h3>
+<p>No — the opposite, slightly. Boiling evaporates water and leaves dissolved sodium behind, concentrating it marginally. Removing dissolved sodium takes membrane filtration (reverse osmosis, 90&ndash;95% rejection of dissolved solids) or distillation, not heat.</p>
+
+<h3>Is softened water safe for pets?</h3>
+<p>Generally yes for healthy pets at typical added-sodium levels, per standard veterinary guidance. Pets with diagnosed heart or kidney conditions deserve the same courtesy as humans with them: ask the professional managing their care.</p>
+
+<h3>Why doesn't my softened water taste salty?</h3>
+<p>Because it isn't salty in the taste sense — sodium in water typically becomes noticeable above roughly 135&ndash;200 mg/L (EPA pegs even sensitive-palate thresholds at 30&ndash;60 mg/L), and most softened water sits below or near the bottom of that band. Any texture change you notice is the missing hardness minerals, not salt.</p>
+
+<h3>Is softened water fine for coffee and cooking?</h3>
+<p>Fine, and often better — coffee gear manufacturers prefer soft water because scale kills machines, and the sodium involved is trivial next to what recipes add on purpose. The exception in my kitchen is that I happen to use the RO tap for coffee anyway, for taste; that's preference, not safety. Bakers sometimes notice one quirk: very soft water can make yeast doughs slightly stickier. A pinch more flour solves what the softener changed.</p>
+
+<h3>Should I just get a reverse osmosis tap to be safe?</h3>
+<p>"To be safe" is the wrong frame — most people don't need one for sodium, and this page would rather you believe that than buy anything. The genuine RO cases: sodium- or formula-related situations above, taste preference, and wanting the city-water extras (chlorine byproducts, lead, PFAS) out of drinking water — things a softener never addressed in the first place.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+<p>Run the calculator with your real gpg, and let the number be the answer — for most readers, it closes the question. If you're in one of the named exception groups, the router above points at the right conversation, which is usually with a doctor, not a store. And if the "what else is in city water" thread is the one still tugging, that's the honest reason RO taps and <a href="/">whole-house filtration setups</a> exist. Curiosity about cleaner water is a better reason to shop than fear of soft water ever was. My family will be drinking from the softened tap tonight, glasses of very hard water made merely very good.</p>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Is Softened Water Safe to Drink? The Sodium Math, From Someone Who Drinks It",
+  "author": {"@type": "Person", "name": "Kelly McClendon", "url": "https://waterfiltersoftenercombo.com/about/", "image": "https://waterfiltersoftenercombo.com/author-kelly.jpg"},
+  "publisher": {"@type": "Organization", "name": "WaterFilterSoftenerCombo.com"},
+  "datePublished": "2026-07-02",
+  "description": "Is softened water safe to drink? For most people yes, per Mayo Clinic and WQA - with the exact sodium math per glass and per liter, sourced context, and the honest exceptions: infant formula and sodium-restricted diets."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is softened water safe for babies?","acceptedAnswer":{"@type":"Answer","text":"For drinking by older children, the same general safety applies as for adults. For infant formula, no - the NHS explicitly advises against softened water for reconstituting formula. Use an unsoftened bypass tap, appropriate low-sodium bottled water, or RO water for formula."}},
+    {"@type":"Question","name":"Does softened water raise blood pressure?","acceptedAnswer":{"@type":"Answer","text":"The sodium it adds is real but small. Whether any added sodium matters for your blood pressure is a question for your physician, particularly on a restricted-sodium plan (AHA's ideal target is 1,500 mg/day). Not medical advice."}},
+    {"@type":"Question","name":"Does boiling softened water remove the sodium?","acceptedAnswer":{"@type":"Answer","text":"No - the opposite, slightly. Boiling evaporates water and concentrates dissolved sodium marginally. Removing it takes reverse osmosis (90-95% dissolved-solids rejection) or distillation, not heat."}},
+    {"@type":"Question","name":"Is softened water safe for pets?","acceptedAnswer":{"@type":"Answer","text":"Generally yes for healthy pets at typical added-sodium levels, per standard veterinary guidance. Pets with heart or kidney conditions: ask the veterinarian managing their care."}},
+    {"@type":"Question","name":"Why doesn't my softened water taste salty?","acceptedAnswer":{"@type":"Answer","text":"Sodium in water typically becomes noticeable above roughly 135-200 mg/L (EPA pegs sensitive-palate thresholds at 30-60 mg/L), and most softened water sits below or near the bottom of that band."}},
+    {"@type":"Question","name":"Is softened water fine for coffee and cooking?","acceptedAnswer":{"@type":"Answer","text":"Fine, and often better - scale kills coffee machines, and the sodium involved is trivial next to what recipes add on purpose."}},
+    {"@type":"Question","name":"Should I just get a reverse osmosis tap to be safe?","acceptedAnswer":{"@type":"Answer","text":"Most people don't need one for sodium. The genuine RO cases: sodium- or formula-related situations, taste preference, and removing city-water extras (chlorine byproducts, lead, PFAS) a softener never addressed."}}
+  ]
+}
+</script>

@@ -1,0 +1,252 @@
+<article>
+<h1>How Much Salt Does a Water Softener Use Per Month? My Receipts, and the Setting That Halves the Number</h1>
+
+<div class="byline">
+  <img src="/author-kelly.jpg" alt="Kelly McClendon, founder of WaterFilterSoftenerCombo.com" width="52" height="52">
+  <div class="who">
+    <a href="/about/">Kelly McClendon</a> <span class="role">&middot; Founder, WaterFilterSoftenerCombo.com</span><br>
+    <span class="role">Mesa, AZ &middot; ~19 gpg water &middot; I log every bag I haul</span>
+  </div>
+</div>
+<p class="updated">Last updated: July 2026 &middot; Salt prices and efficiency figures verified on writing day</p>
+
+<p><strong>Most homes use between half a bag and two 40-lb bags of softener salt per month — roughly $25&ndash;$160 a year at today's $6&ndash;$9 bag prices. Your exact number is driven by three things: water hardness, household water use, and one settings choice (the salt dose) that can nearly cut consumption in half.</strong></p>
+
+<p class="disclosure-line">Reader-supported: this page contains a couple of affiliate links and I may earn a commission at no cost to you. The math works on any brand's softener. <a href="/affiliate-disclosure/">Details</a>.</p>
+
+<p>This article exists because of the month I hauled four bags up from the garage. I decided the internet's answers weren't good enough. Every page I found said the same sentence — "a family of four uses about one 40-lb bag per month" — with no formula underneath it. Water softener salt is a solvable math problem, not folklore. I own the softener, I buy the bags, and I log the numbers. So here are the real drivers, my actual Mesa consumption, and the diagnostic section for everyone whose softener seems to be eating salt.</p>
+
+<h2 id="drivers">What Actually Drives Salt Use</h2>
+<p>One sentence: <strong>water softener salt usage = hardness removed &times; water used &divide; salt efficiency.</strong> Everything else on this page unpacks those three levers. Here's the worked chain, using the same 75-gallon-per-person sizing convention as the rest of this site:</p>
+<ul>
+  <li><strong>Daily grain load:</strong> hardness (gpg) &times; people &times; 75 gallons. A family of four at 12 gpg: 12 &times; 4 &times; 75 = 3,600 grains a day.</li>
+  <li><strong>Monthly load:</strong> &times;30 &rarr; 108,000 grains a month that must be captured and flushed.</li>
+  <li><strong>Salt does the flushing:</strong> every regeneration spends salt to strip those grains off the resin — and how many grains each pound of salt strips is a <em>setting</em>, not a fixed fact. That setting is the whole next section.</li>
+</ul>
+
+<h2 id="worked-examples">The Real Numbers at Three Hardness Levels</h2>
+<p>Family of four, metered valve, at an efficient salt dose (~4,500 grains removed per pound — defined below):</p>
+<ul>
+  <li><strong>7 gpg (moderately hard):</strong> 63,000 grains/month &divide; 4,500 = <strong>~14 lbs/month</strong> — a bag every three months. Yes, really that little.</li>
+  <li><strong>12 gpg (hard):</strong> 108,000 &divide; 4,500 = <strong>~24 lbs/month</strong> — about 0.6 bags, a bag every 6&ndash;7 weeks.</li>
+  <li><strong>20 gpg (Mesa-grade):</strong> 180,000 &divide; 4,500 = <strong>~40 lbs/month</strong> — one full bag, on the nose.</li>
+</ul>
+<p>Now the decoder ring for the internet's favorite sentence. "A family of four uses one bag a month" is true — at moderate hardness with the softener programmed at a <em>standard-to-heavy</em> salt dose, or on a timed valve. Run the folklore number backward and it implies 2,100&ndash;3,100 grains per pound of salt — mediocre efficiency that nobody quoting the number ever mentions. The pages repeating it aren't lying. They're describing softeners set up the lazy way, and calling it physics.</p>
+
+<div class="tool" id="sc-calc">
+  <span class="kicker">Interactive Tool</span>
+  <h3>Monthly salt &amp; cost calculator</h3>
+  <label for="sc-hard">Your water hardness</label>
+  <div style="display:flex;gap:8px;align-items:center">
+    <input type="number" id="sc-hard" min="1" max="900" value="12" step="0.5" style="flex:1">
+    <select id="sc-unit" style="flex:1">
+      <option value="gpg" selected>gpg</option>
+      <option value="ppm">ppm / mg&frasl;L (&divide;17.1)</option>
+    </select>
+  </div>
+  <label for="sc-people">People in the household</label>
+  <input type="number" id="sc-people" min="1" max="12" value="4">
+  <label for="sc-dose">Salt dose setting</label>
+  <select id="sc-dose">
+    <option value="4500" selected>Efficient (~6 lbs/cu ft &rarr; ~4,500 grains/lb)</option>
+    <option value="3000">Standard (~10 lbs/cu ft &rarr; ~3,000 grains/lb)</option>
+    <option value="2250">Maximum capacity (~15 lbs/cu ft &rarr; ~2,250 grains/lb)</option>
+  </select>
+  <label>Valve type</label>
+  <label style="font-weight:400"><input type="radio" name="sc-valve" value="1" checked> Metered (demand) — counts your real gallons</label>
+  <label style="font-weight:400"><input type="radio" name="sc-valve" value="1.5"> Timed — regenerates on a calendar (~1.5&times; the salt)</label>
+  <label style="font-weight:400"><input type="checkbox" id="sc-unknown"> I don't actually know my hardness</label>
+  <div class="result" aria-live="polite" id="sc-result">
+    <span class="big">~24 lbs/month &middot; 0.6 bags &middot; $43&ndash;$65/year</span>
+    <span>The math: 12 gpg &times; 4 people &times; 75 gal &times; 30 days = 108,000 grains/month &divide; 4,500 grains/lb = 24 lbs. At $6&ndash;$9 per 40-lb bag, that's a bag every 6&ndash;7 weeks.</span>
+  </div>
+  <p class="fineprint">Uses the 75-gal/person sizing convention (real household logs often run leaner — mine does, see below). Efficiency bands per WQA and manufacturer dosing specs. Math matches every worked example on this page exactly.</p>
+</div>
+<script>
+(function(){
+  var h=document.getElementById('sc-hard'),u=document.getElementById('sc-unit'),p=document.getElementById('sc-people'),
+      dd=document.getElementById('sc-dose'),un=document.getElementById('sc-unknown'),res=document.getElementById('sc-result');
+  function valve(){var el=document.querySelector('input[name="sc-valve"]:checked');return el?parseFloat(el.value):1;}
+  function upd(){
+    if(un.checked){
+      res.innerHTML='<span class="big">Your salt budget is guessing too</span><span>Every number here hangs on your gpg. If you\u2019re estimating hardness, you\u2019re estimating dollars \u2014 a lab test settles both.</span><p style="margin:.6em 0 0"><a class="cta" href="/go/test-kit" rel="nofollow sponsored noopener">Get a Lab Water Test \u2192</a></p>';
+      return;
+    }
+    var raw=parseFloat(h.value)||0;
+    var gpg=u.value==='ppm'?Math.round(raw/17.1*10)/10:raw;
+    var people=Math.max(1,parseInt(p.value)||4),eff=parseInt(dd.value),v=valve();
+    var grains=Math.round(gpg*people*75*30);
+    var lbs=Math.round(grains/eff*v);
+    var bags=Math.round(lbs/40*10)/10;
+    var loY=Math.round(lbs*12/40*6),hiY=Math.round(lbs*12/40*9);
+    var cadence=bags>=1?(Math.round(4.33/ (bags/ (30/7)) )? '':'' ):'';
+    res.innerHTML='<span class="big">~'+lbs+' lbs/month \u00b7 '+bags+' bags \u00b7 $'+loY+'\u2013$'+hiY+'/year</span><span>The math: '+gpg+' gpg \u00d7 '+people+' people \u00d7 75 gal \u00d7 30 days = '+grains.toLocaleString()+' grains/month \u00f7 '+eff.toLocaleString()+' grains/lb'+(v>1?' \u00d7 1.5 timed-valve factor':'')+' = '+lbs+' lbs. At $6\u2013$9 per 40-lb bag.'+(v>1?' <strong>Flip the valve toggle to metered and watch a third of this disappear.</strong>':'')+'</span>';
+  }
+  [h,u,p,dd,un].forEach(function(el){el.addEventListener('input',upd);el.addEventListener('change',upd);});
+  [].forEach.call(document.querySelectorAll('input[name="sc-valve"]'),function(el){el.addEventListener('change',upd);});
+})();
+</script>
+
+<h2 id="dose-lever">The Salt-Dose Lever: The Setting Sellers Don't Mention</h2>
+<p>Here's the money insight, and the section existing owners came for. Your softener's salt dose is the pounds of salt used per regeneration, usually settable in the valve. It trades capacity against efficiency, and the trade is steep:</p>
+<ul>
+  <li><strong>Maximum-capacity dosing (~15 lbs per cubic foot of resin):</strong> squeezes the full sticker capacity out of each regeneration, at a miserable ~2,000&ndash;2,500 grains removed per pound of salt.</li>
+  <li><strong>Efficient dosing (~6 lbs per cubic foot):</strong> each regeneration recharges less capacity — so cycles come slightly more often — but every pound of salt removes ~4,000&ndash;5,000 grains. Roughly double the mileage.</li>
+</ul>
+<p>Same house, same water, same softener: the setting alone can nearly halve monthly consumption. In benefit terms, that's one fewer bag hauled from the garage every month at Mesa hardness. The water stays identically soft. Why do units ship at heavier doses? Because "lasts longer between regenerations" demos well and nobody ever returned a softener for using too much salt. If you change one setting after reading this page, make it this one (your manual calls it salt dose, salt setting, or lbs/regeneration), and pair it with your <em>true tested hardness</em> — the second setting most units have wrong.</p>
+
+<h2 id="metered-timed">Metered vs Timed: The Other Halving</h2>
+<p>The dose decides how efficiently salt is spent; the valve decides how often it's spent at all. A <strong>timed valve</strong> regenerates on a calendar — every two or three nights, whether your family used 800 gallons or was at the beach all week. A <strong>metered (demand) valve</strong> counts actual gallons and regenerates only when the resin genuinely needs it. Across a year of vacations, light weeks, and guests, the calendar approach burns roughly 40&ndash;70% more salt and water for identical softness. The calculator's toggle above shows your house's exact delta. This is the entire reason demand-metered systems exist. The one in my garage, the <a href="/go/softener" rel="nofollow sponsored noopener">SpringWell SS series</a>, meters through a Bluetooth head. That mattered to my salt budget mostly because it made entering my real 19 gpg a ninety-second job. That correction, plus the efficient dose, is the whole story of the log below.</p>
+
+<h2 id="mesa-log">My Mesa Salt Log: The Receipts</h2>
+<p>Four people, ~19 gpg city water, metered valve, efficient dose, true hardness programmed. What I actually pour:</p>
+<div class="table-wrap"><table>
+<tr><th>Period</th><th>What I logged</th><th>Notes</th></tr>
+<tr><td>Typical month</td><td>One 40-lb bag every 5&ndash;7 weeks (~29&ndash;34 lbs/mo)</td><td>Steady state since the settings were corrected</td></tr>
+<tr><td>Summer (kids home, guests)</td><td>Closer to the 5-week end</td><td>More gallons, more grains — the meter just follows usage</td></tr>
+<tr><td>Vacation weeks</td><td>Zero regenerations, zero salt</td><td>The metered valve's whole argument in one row</td></tr>
+<tr><td>Before I fixed the settings</td><td>A bag every ~3 weeks (~55&ndash;60 lbs/mo)</td><td>Factory-default hardness + heavier dose: nearly double</td></tr>
+<tr><td>What I pay</td><td>$6&ndash;$7/bag at the warehouse club; $8&ndash;$9 at hardware stores</td><td>Pellets, 99%+ purity — worth it for a clean brine tank</td></tr>
+</table></div>
+<p>Two honest footnotes. First, my log runs a touch leaner than the calculator's 40 lbs/month prediction at my inputs — because the 75-gallon convention is deliberately padded for sizing safety, while our real indoor use tracks nearer the EPA's ~60-gallon average. The formula budgets; the meter measures. Second, the before/after row is the whole article in miniature: <strong>the same softener on the same water nearly doubled its appetite on factory settings.</strong> If you're hauling more bags than the calculator predicts, your settings — not your softener — are usually the suspect, which is exactly what the diagnoser below checks.</p>
+
+<h2 id="annual-table">Annual Salt Cost Table</h2>
+<p>Efficient dose, metered valve, $6&ndash;$9 per 40-lb bag — the honest budget line for a purchase decision:</p>
+<div class="table-wrap"><table>
+<tr><th>Hardness &darr; / Household &rarr;</th><th>2 people</th><th>4 people</th><th>6 people</th></tr>
+<tr><td>7 gpg</td><td>~2 bags/yr &middot; $13&ndash;$19</td><td>~4 bags/yr &middot; $25&ndash;$38</td><td>~6 bags/yr &middot; $38&ndash;$57</td></tr>
+<tr><td>12 gpg</td><td>~4 bags/yr &middot; $22&ndash;$32</td><td>~7 bags/yr &middot; $43&ndash;$65</td><td>~11 bags/yr &middot; $65&ndash;$97</td></tr>
+<tr><td>20 gpg</td><td>~6 bags/yr &middot; $36&ndash;$54</td><td>~12 bags/yr &middot; $72&ndash;$108</td><td>~18 bags/yr &middot; $108&ndash;$162</td></tr>
+</table></div>
+<p class="fineprint">Values computed with the calculator above — same formula, same efficiency figure. A timed valve or maximum-dose setting multiplies these by 1.5&ndash;2&times;, which is how the same 20 gpg house can genuinely reach 3 bags a month. Roughly 85% of US homes have some hardness per the WQA; where you sit on the USGS map is the biggest single input.</p>
+
+<h3>Where you live sets your baseline</h3>
+<p>Regional hardness is the input nobody can negotiate. On the USGS map, the Southwest, Texas, the Great Plains, and much of the Midwest run hard to very hard — 10&ndash;25+ gpg is normal in Phoenix, Vegas, San Antonio, and Indianapolis. The Pacific Northwest and New England mostly sit soft to moderate. The same family of four can honestly need six bags a year in Seattle and eighteen in Mesa. So when a neighbor two states over swears their softener "barely uses salt," believe them — and ignore them. Their baseline isn't yours.</p>
+<p>One buying habit worth stealing regardless of region: buy two or three bags at a time. It's not just the bulk price. An empty brine tank means hard water breakthrough within days, and the emergency hardware-store bag is always the $9 one. A small salt reserve in the garage is the cheapest insurance in home ownership. Two bags deep has never once failed me.</p>
+
+<h2 id="salt-types">Does the Type of Salt Change Usage? (Pellets, Crystals, Solar, Potassium)</h2>
+<p>Mostly no — a pound of sodium chloride regenerates the same grains regardless of its shape. What differs is housekeeping. <strong>Evaporated pellets</strong> ($6&ndash;$10/bag, 99%+ pure) leave the least residue and bridge least. <strong>Solar crystals</strong> ($5&ndash;$8) are fine, slightly less pure. <strong>Rock salt</strong> ($4&ndash;$6) is cheap and pays you back in brine-tank sludge and cleanings — the false economy of the category. <strong>Potassium chloride</strong> is the real exception: it works, it's the choice for sodium-restricted households, and the honest math is that it costs $20&ndash;$30 a bag (3&ndash;4&times; sodium's price) and regenerates a little less efficiently, so plan on ~10&ndash;15% more of it. For most sodium-restricted homes, the cheaper engineering answer is regular salt plus a reverse-osmosis unit at the kitchen tap — softened house, sodium-free drinking water. (For context: softening adds about 7.85 mg of sodium per liter per grain removed — roughly a slice of bread's worth per liter even at my hardness. Mainstream medical guidance considers that safe for most people; those on supervised sodium restriction should ask their doctor. Not medical advice.)</p>
+
+<h2 id="too-much">"My Softener Is Using Too Much Salt" — the Diagnostic</h2>
+<p>For the reader hauling three-plus bags a month and wondering what's wrong, in the order I'd check:</p>
+<ul>
+  <li><strong>Hardness setting wrong.</strong> The classic: factory default, a guess, or — the silent killer — a ppm number entered as gpg (they differ by 17.1&times;; the <a href="/what-size-water-softener-do-i-need/">sizing page</a> covers the conversion trap). Enter your tested gpg and nothing else.</li>
+  <li><strong>Salt dose set to maximum.</strong> See the lever section above — drop it toward the efficient setting and watch the monthly number fall.</li>
+  <li><strong>Undersized unit.</strong> A too-small softener regenerates every second or third day just to keep up, burning salt on constant cycles. Run your numbers through my <a href="/what-size-water-softener-do-i-need/">sizing calculator</a>; if your required capacity crowds your unit's honest capacity, the softener isn't broken — it's small.</li>
+  <li><strong>A silent leak.</strong> A running toilet flapper can pass 200+ gallons a day. Every one of those gallons gets softened, and every grain gets billed in salt. A mysterious water-bill spike alongside a salt spike is this until proven otherwise.</li>
+  <li><strong>Valve stuck in regeneration.</strong> Rarer: if you hear cycles at odd hours or the drain line runs long past the normal ~2-hour window, the valve needs service.</li>
+</ul>
+<p>And the opposite complaint — <strong>the salt level never drops</strong> — is usually good news wearing a disguise. Either it's a salt bridge: a crust dome holding its shape above the water while the tank looks full. (Tap it with a broom handle and it collapses.) Or the unit isn't regenerating at all, which the water's returning hardness will confirm within days.</p>
+
+<div class="tool" id="sd-quiz">
+  <span class="kicker">Interactive Tool</span>
+  <h3>Salt problem diagnoser</h3>
+  <div id="sd-wrap">
+    <label>1. How often is it regenerating? (listen for the ~2 a.m. cycle, or check the valve's log)</label>
+    <label style="font-weight:400"><input type="radio" name="sd1" value="often"> Every 1&ndash;3 days</label>
+    <label style="font-weight:400"><input type="radio" name="sd1" value="normal" checked> Every 4&ndash;10 days</label>
+    <label style="font-weight:400"><input type="radio" name="sd1" value="rare"> Rarely or never, as far as I can tell</label>
+    <label>2. The salt level in the brine tank is&hellip;</label>
+    <label style="font-weight:400"><input type="radio" name="sd2" value="fast"> Dropping fast — bags disappear</label>
+    <label style="font-weight:400"><input type="radio" name="sd2" value="normal" checked> Dropping steadily</label>
+    <label style="font-weight:400"><input type="radio" name="sd2" value="never"> Never seems to go down</label>
+    <label>3. The hardness setting in the valve&hellip;</label>
+    <label style="font-weight:400"><input type="radio" name="sd3" value="tested" checked> Matches my tested gpg</label>
+    <label style="font-weight:400"><input type="radio" name="sd3" value="guessed"> Was guessed / factory default / never checked</label>
+    <label>4. Has your water bill spiked recently?</label>
+    <label style="font-weight:400"><input type="radio" name="sd4" value="n" checked> No</label>
+    <label style="font-weight:400"><input type="radio" name="sd4" value="y"> Yes, unexplained</label>
+  </div>
+  <div class="result" aria-live="polite" id="sd-result">
+    <span class="big">Your usage is actually normal</span>
+    <p style="margin:.4em 0">Regenerating every 4&ndash;10 days with a steadily dropping salt level and a verified hardness setting is a softener doing its job. Compare your bags against the calculator above; if they're in range, the only fix you need is a Costco run.</p>
+  </div>
+  <p class="fineprint">Honest tell: one of these outcomes is "nothing is wrong." Not every salt bill is a problem.</p>
+</div>
+<script>
+(function(){
+  var wrap=document.getElementById('sd-wrap'),res=document.getElementById('sd-result');
+  function val(n){var el=wrap.querySelector('input[name="'+n+'"]:checked');return el?el.value:null;}
+  function card(big,body,link,label,internal){
+    res.innerHTML='<span class="big">'+big+'</span><p style="margin:.4em 0">'+body+'</p>'+(link?'<p style="margin:.6em 0 0"><a class="cta" href="'+link+'">'+label+'</a></p>':'');
+  }
+  function upd(){
+    var freq=val('sd1'),drop=val('sd2'),setting=val('sd3'),bill=val('sd4');
+    if(drop==='never'||freq==='rare'){
+      card('Check for a salt bridge \u2014 or a unit that isn\u2019t regenerating','Tap the salt with a broom handle: if a crust dome collapses, that was a salt bridge starving the brine (fix complete \u2014 the tank looked full while brewing weak brine). If there\u2019s no bridge and regenerations truly aren\u2019t happening, check the valve\u2019s clock and settings; returning hardness (spots, poor lather) within days confirms it. That\u2019s a service call.');
+      return;
+    }
+    if(bill==='y'){
+      card('Suspect a silent leak first','An unexplained water-bill spike alongside a salt spike is a running toilet flapper until proven otherwise \u2014 200+ softened gallons a day, every grain billed in salt. Food-coloring test in the tank tonight; fix the flapper, then rerun this quiz in a month.');
+      return;
+    }
+    if(setting==='guessed'){
+      card('Fix the hardness setting before anything else','A guessed or factory-default hardness number \u2014 or a ppm figure entered as gpg (they differ by 17.1\u00d7) \u2014 makes any softener over-regenerate. Enter your tested gpg, drop the salt dose toward the efficient setting, and give it a month. This is the most common fix on this whole page.');
+      return;
+    }
+    if(freq==='often'){
+      card('Regenerating every 1\u20133 days points to sizing','With settings verified and no leak, constant cycles mean the unit\u2019s honest capacity is too small for your load \u2014 it isn\u2019t broken, it\u2019s small. Run the numbers to confirm before any service call.','/what-size-water-softener-do-i-need/','Run the Sizing Calculator \u2192');
+      return;
+    }
+    card('Your usage is actually normal','Regenerating every 4\u201310 days with a steadily dropping salt level and a verified hardness setting is a softener doing its job. Compare your bags against the calculator above; if they\u2019re in range, the only fix you need is a Costco run.');
+  }
+  [].forEach.call(wrap.querySelectorAll('input'),function(el){el.addEventListener('change',upd);});
+})();
+</script>
+
+<h2 id="refill">How and When to Actually Add Salt</h2>
+<p>The routine, minus the mystery: check the brine tank monthly. Refill when the salt sits below roughly half full. Keep the level <strong>above the water line but no more than half to two-thirds full</strong>. Overfilling is what promotes bridging: the weight compacts the lower salt into a crust while humidity glues the top. Pour, don't dump (dust and fines promote mushing at the bottom), and give the tank a knuckle-tap check for a bridge once a year or any time the level seems frozen. That — plus buying a couple of bags ahead so a busy month never runs the tank dry — is the entire relationship. (What the salt is actually <em>doing</em> in there is the brine-draw stage of the <a href="/how-does-a-water-softener-work/#regeneration-cycle">regeneration cycle</a>, if you want the ten-minute version of the chemistry.)</p>
+
+<h2 id="faq" class="faq">Salt Usage FAQ</h2>
+
+<h3>How many bags of salt per month for a family of 4?</h3>
+<p>At an efficient dose on a metered valve: about a bag every three months at 7 gpg, a bag every 6&ndash;7 weeks at 12 gpg, and one bag a month at 20 gpg. The internet's "one bag a month" default describes moderate hardness at heavier factory dosing — real consumption is a settings question as much as a water question.</p>
+
+<h3>Can a water softener use too much salt?</h3>
+<p>Easily — and it's almost always configuration, not malfunction: a maximum salt-dose setting, a guessed or ppm-confused hardness entry, a timed valve, an undersized unit cycling constantly, or a silent leak feeding it gallons. The diagnoser above walks the checklist in order of likelihood. (Frequency problems specifically — nightly cycles, no cycles, bad timing — get the full treatment in my <a href="/water-softener-regeneration/">regeneration guide</a>.)</p>
+
+<h3>Why is my brine tank full of water?</h3>
+<p>A few inches of standing water is normal and necessary — it's dissolving salt into the next cycle's brine. It's only a problem if the water is rising toward the top (stuck float or clogged injector) or standing above the salt with the level never dropping, which suggests the unit isn't drawing brine at all.</p>
+
+<h3>Pellets vs crystals vs rock salt — does it matter?</h3>
+<p>For salt consumption, no; for housekeeping, yes. High-purity pellets ($6&ndash;$10) leave minimal residue and bridge least; solar crystals are a fine middle; rock salt's low price buys you sludge and brine-tank cleanings. Buy purity, skip drama.</p>
+
+<h3>Is potassium chloride worth the price?</h3>
+<p>For sodium-restricted households where the doctor says minimize it: yes, budgeting 3&ndash;4&times; the cost and ~10&ndash;15% more product. For everyone else, the sodium added by normal softening is small — about a slice of bread per liter at even very hard levels, per mainstream medical framing. (Not medical advice.) Regular salt plus an RO tap for drinking water is usually the cheaper path to the same goal. (The full sourced safety math is my <a href="/is-softened-water-safe-to-drink/">softened water safety guide</a>; where salt fits in total ownership is the <a href="/water-softener-cost/">10-year cost breakdown</a>.)</p>
+
+<h3>Why does my salt level never go down?</h3>
+<p>Either a salt bridge — a crust dome holding its shape above the water so the tank looks full while the brine brews weak (broom handle, one firm tap) — or the softener isn't regenerating at all, which returning hardness will confirm within days. Check the bridge first; it's free.</p>
+
+<h3>Does harder water always mean more salt?</h3>
+<p>Proportionally, yes — salt use scales directly with grains removed, so 20 gpg water costs roughly triple 7 gpg water in salt. But the dose setting and valve type each swing the number by up to ~50%, which is why two identical houses on identical water can have very different Costco habits.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+<p>If you're budgeting a purchase: run the calculator with your tested gpg (a <a href="/go/test-kit" rel="nofollow sponsored noopener">lab test</a> if you're guessing — a guessed hardness makes a guessed salt budget), and read the field comparison in my <a href="/best-salt-based-water-softener/">best salt-based water softener guide</a>. If you're troubleshooting an existing unit: the diagnoser's answer plus the two settings fixes covers the large majority of "too much salt" cases without a service call. And one long-run footnote for city-water homes: chlorine quietly degrades softening resin, which raises lifetime costs its own way — the paired-filtration answer lives in <a href="/">my water filter and softener combo guide</a>. May all your future bags be the calculator's fault, not your settings'.</p>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How Much Salt Does a Water Softener Use Per Month? My Receipts, and the Setting That Halves the Number",
+  "author": {"@type": "Person", "name": "Kelly McClendon", "url": "https://waterfiltersoftenercombo.com/about/", "image": "https://waterfiltersoftenercombo.com/author-kelly.jpg"},
+  "publisher": {"@type": "Organization", "name": "WaterFilterSoftenerCombo.com"},
+  "datePublished": "2026-07-02",
+  "description": "How much salt a water softener really uses per month: the driver formula, worked numbers at three hardness levels, a real Mesa salt log, and the dose setting that can nearly halve consumption."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"How many bags of salt per month for a family of 4?","acceptedAnswer":{"@type":"Answer","text":"At an efficient dose on a metered valve: about a bag every three months at 7 gpg, a bag every 6-7 weeks at 12 gpg, and one bag a month at 20 gpg. The common one-bag-a-month figure describes moderate hardness at heavier factory dosing."}},
+    {"@type":"Question","name":"Can a water softener use too much salt?","acceptedAnswer":{"@type":"Answer","text":"Easily - and it's almost always configuration: a maximum salt-dose setting, a guessed or ppm-confused hardness entry, a timed valve, an undersized unit cycling constantly, or a silent leak. Check settings before service calls."}},
+    {"@type":"Question","name":"Why is my brine tank full of water?","acceptedAnswer":{"@type":"Answer","text":"A few inches of standing water is normal - it dissolves salt into the next cycle's brine. It's only a problem if the water rises toward the top (stuck float or clogged injector) or the salt level never drops."}},
+    {"@type":"Question","name":"Pellets vs crystals vs rock salt - does it matter?","acceptedAnswer":{"@type":"Answer","text":"For salt consumption, no; for housekeeping, yes. High-purity pellets leave minimal residue and bridge least; rock salt's low price buys sludge and brine-tank cleanings."}},
+    {"@type":"Question","name":"Is potassium chloride worth the price?","acceptedAnswer":{"@type":"Answer","text":"For sodium-restricted households, yes - budgeting 3-4x the cost and ~10-15% more product. Otherwise, the sodium from normal softening is small (about a slice of bread per liter at very hard levels), and regular salt plus an RO drinking-water tap is usually cheaper. Not medical advice."}},
+    {"@type":"Question","name":"Why does my salt level never go down?","acceptedAnswer":{"@type":"Answer","text":"Either a salt bridge - a crust dome above the water that collapses with one broom-handle tap - or the softener isn't regenerating at all, which returning hardness confirms within days."}},
+    {"@type":"Question","name":"Does harder water always mean more salt?","acceptedAnswer":{"@type":"Answer","text":"Proportionally yes - salt use scales with grains removed, so 20 gpg water costs roughly triple 7 gpg water in salt. But the dose setting and valve type each swing the number by up to ~50%."}}
+  ]
+}
+</script>

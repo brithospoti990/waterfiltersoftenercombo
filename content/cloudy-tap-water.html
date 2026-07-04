@@ -1,0 +1,201 @@
+<article>
+<h1>Cloudy or Milky Tap Water: The Two-Minute Diagnosis</h1>
+
+<div class="byline">
+  <img src="/author-kelly.jpg" alt="Kelly McClendon, founder of WaterFilterSoftenerCombo.com" width="52" height="52">
+  <div class="who">
+    <a href="/about/">Kelly McClendon</a> <span class="role">&middot; Founder, WaterFilterSoftenerCombo.com</span><br>
+    <span class="role">Mesa, AZ + a Payson well cabin &mdash; I've poured both cloudy glasses: the one that cleared itself, and the one that sent me to the sediment stage</span>
+  </div>
+</div>
+<p class="updated">Last updated: July 2026 &middot; Safety framing attributed to USGS/EPA/utility sources</p>
+
+<p><strong>Before reading further: fill a clear glass and watch it for two minutes. If it clears from the <em>bottom up</em>, it's harmless dissolved air &mdash; common in cold weather, safe to drink, no fix needed. If particles <em>settle downward</em> or the haze never clears, that's sediment worth checking. Air rises; particles sink. That direction is your answer.</strong></p>
+
+<p class="disclosure-line">Reader-supported: if a real finding sends you to equipment, there's an affiliate link and I may earn a commission at no cost to you. But most readers here get released with good news and no product at all &mdash; the honest verdict is usually "your water's fine." <a href="/affiliate-disclosure/">Details</a>.</p>
+
+<p>Your glass is on the counter right now, looking milky, and you're wondering if something's wrong. Here's the good news up front, because you shouldn't have to scroll for it: <strong>most cloudy tap water is harmless air, and you can prove it in two minutes.</strong> I've poured both kinds. One winter morning in Mesa my glass came out white, and I watched it clear itself from the bottom up while I stood there &mdash; just air. Up at my Payson cabin, right after some pump work, a glass came out cloudy and settled a fine gray dust to the bottom &mdash; that one was real, and it sent me to my sediment stage. Same cloud, opposite verdicts, one free test between them. Let me give you that test, then the physics behind it, then exactly what to do if yours is the settling kind.</p>
+
+<h2 id="air">The Air Verdict (What Most People Have)</h2>
+<p>If your glass cleared from the bottom up, you're done &mdash; but here's why, because the mechanism is genuinely satisfying. <strong>Cold water holds more dissolved gas than warm water.</strong> Water sitting in your pressurized pipes holds even more, the way a sealed bottle of soda holds its fizz. When you open the tap, the pressure drops and the water warms slightly in your glass. That dissolved air comes out of solution as thousands of tiny bubbles &mdash; exactly like the fizz rising when you open a carbonated drink. Those micro-bubbles scatter light, which reads as milky white. Then they rise and escape, and the clear water is left behind, bottom to top. That's the whole story.</p>
+<p><strong>Why it shows up when it does:</strong> in <em>winter</em>, the mains deliver colder, more gas-rich water &mdash; the "suddenly, in January" that sends people searching. After <em>utility work</em>, repressurizing a main entrains extra air. On <em>wells</em>, pump or pressure-tank work stirs air into the system. And sometimes it's just a fixture's aerator doing its job. All of these are the same harmless physics.</p>
+<p>The safety statement, plainly and without hedging: <strong>air-cloudy water is safe to drink</strong> &mdash; the USGS calls it completely harmless, and it's literally the same air you're breathing, just in smaller pieces suspended briefly in water. There's no fix, no product, and no follow-up. It resolves itself in seconds to a couple of minutes, every time. If your glass cleared bottom-up, stop reading and drink it. That's the cleanest verdict in this whole cluster, and I'm not going to complicate it.</p>
+
+<div class="tool" id="two-glass-sim">
+  <span class="kicker">Interactive Tool</span>
+  <h3>The two-glass test, animated</h3>
+  <p style="margin:.2em 0 .6em">Watch the difference so you know what you're looking at. Drag the timeline.</p>
+  <div style="display:flex;gap:1em;justify-content:center;margin:.6em 0">
+    <div style="text-align:center">
+      <svg viewBox="0 0 80 120" width="80" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Air glass clearing bottom up">
+        <path d="M15 10 L18 110 Q18 114 22 114 L58 114 Q62 114 62 110 L65 10 Z" fill="none" stroke="var(--ink,#333)" stroke-width="1.5"/>
+        <clipPath id="cg-air"><path d="M16 12 L19 109 Q19 112 22 112 L58 112 Q61 112 61 109 L64 12 Z"/></clipPath>
+        <g clip-path="url(#cg-air)">
+          <rect x="15" y="12" width="50" height="102" fill="#dfeaf0"/>
+          <rect id="air-clear" x="15" y="80" width="50" height="34" fill="#bfe0ef"/>
+          <g id="air-bubbles"></g>
+        </g>
+      </svg>
+      <div class="fineprint"><strong>Air</strong> &mdash; clears bottom-up</div>
+    </div>
+    <div style="text-align:center">
+      <svg viewBox="0 0 80 120" width="80" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sediment glass settling top down">
+        <path d="M15 10 L18 110 Q18 114 22 114 L58 114 Q62 114 62 110 L65 10 Z" fill="none" stroke="var(--ink,#333)" stroke-width="1.5"/>
+        <clipPath id="cg-sed"><path d="M16 12 L19 109 Q19 112 22 112 L58 112 Q61 112 61 109 L64 12 Z"/></clipPath>
+        <g clip-path="url(#cg-sed)">
+          <rect x="15" y="12" width="50" height="102" fill="#e6e2d8"/>
+          <rect id="sed-layer" x="15" y="110" width="50" height="4" fill="#b0a68c"/>
+          <rect id="sed-clear" x="15" y="12" width="50" height="0" fill="#eef1f4"/>
+        </g>
+      </svg>
+      <div class="fineprint"><strong>Sediment</strong> &mdash; settles down</div>
+    </div>
+  </div>
+  <input type="range" id="cg-time" min="0" max="100" value="0" step="1" style="width:100%">
+  <div class="result" aria-live="polite" id="cg-caption"></div>
+</div>
+<script>
+(function(){
+  var t=document.getElementById('cg-time'),cap=document.getElementById('cg-caption');
+  var airClear=document.getElementById('air-clear'),airBub=document.getElementById('air-bubbles'),
+      sedLayer=document.getElementById('sed-layer'),sedClear=document.getElementById('sed-clear');
+  // build bubbles
+  var bubs=[];for(var i=0;i<10;i++){var c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('r',(1+Math.random()*1.5).toFixed(1));c.setAttribute('cx',(20+Math.random()*40).toFixed(0));c.setAttribute('fill','#fff');c.setAttribute('stroke','#bcd');c.setAttribute('stroke-width','0.3');airBub.appendChild(c);bubs.push({el:c,x:20+Math.random()*40,phase:Math.random()});}
+  function render(){
+    var p=parseInt(t.value)/100;
+    // AIR: clear front rises from bottom (y from 114 up to 12), bubbles rise and fade
+    var clearTop=114-p*102;
+    airClear.setAttribute('y',clearTop.toFixed(0));airClear.setAttribute('height',(114-clearTop).toFixed(0));
+    bubs.forEach(function(b){var y=110-((p+b.phase)%1)*98;b.el.setAttribute('cy',y.toFixed(0));b.el.setAttribute('opacity',(1-p).toFixed(2));});
+    // SEDIMENT: clear front descends from top (particles fall), settled layer grows at bottom
+    sedClear.setAttribute('height',(p*88).toFixed(0));
+    sedLayer.setAttribute('y',(114-4-p*14).toFixed(0));sedLayer.setAttribute('height',(4+p*14).toFixed(0));
+    var msg;
+    if(p<0.15)msg='<strong>Both glasses start milky.</strong> You can\u2019t tell them apart yet \u2014 that\u2019s the whole point of waiting. Drag forward and watch which way each clears.';
+    else if(p<0.85)msg='<strong>Now they diverge.</strong> The air glass clears <em>upward</em> as bubbles rise and escape. The sediment glass clears <em>downward</em> as particles fall to a growing layer on the bottom. Direction is the diagnosis.';
+    else msg='<strong>Verdict.</strong> Air glass: clean, top to bottom \u2014 safe, drink it. Sediment glass: clear water above a gray layer below \u2014 real, worth investigating. Now pour yours and watch which one it matches.';
+    cap.innerHTML='<span>'+msg+'</span>';
+  }
+  t.addEventListener('input',render);render();
+})();
+</script>
+
+<h2 id="settling">The Settling Verdict (When It's Real)</h2>
+<p>If your glass didn't clear bottom-up &mdash; if particles drifted down to a layer, or the haze just sat there &mdash; then it's worth a closer look. What you're seeing tells you which path you're on.</p>
+<p><strong>Gray or tan grit settling to the bottom = sediment.</strong> Silt, sand, or fine particles that made it through (or got stirred up). First fork: check another tap. If it's at <em>every</em> tap, it's likely supply-side; if it's <em>one</em> fixture, suspect that fixture or its branch line. Confirmed sediment is a hardware question &mdash; my <a href="/sediment-pre-filter/#placement">sediment guide</a> covers staging, and a <a href="/go/sediment" rel="nofollow sponsored noopener">spin-down sediment filter</a> is the standard first stage that catches grit before it reaches the rest of your system. On a well especially, sediment after pump work or heavy rain is common and fixable.</p>
+<p><strong>White flakes, especially in hot water or the kettle = hardness precipitate.</strong> That's minerals dropping out of solution when heated, not true cloudiness &mdash; a different story that belongs to my <a href="/signs-of-hard-water/#signs">hard water guide</a> (the scaled-kettle chapter). If your cold glass is clear but your kettle crusts white, that's hardness, not turbidity.</p>
+<p><strong>A uniform haze that never clears at all = turbidity proper.</strong> Turbidity is the lab word for suspended particles that don't settle &mdash; and it's what utilities monitor, because while the particles themselves may be harmless, turbidity can shelter bacteria and is a signal worth heeding. The EPA treats turbidity as a secondary (aesthetic) standard, not a health limit on its own, but persistent haze that survives the glass test deserves a real test &mdash; my <a href="/how-to-test-well-water/#reading">testing guide</a> covers the lab route. One critical exception: if cloudiness arrives <em>with a boil-water notice or utility advisory</em>, follow that notice regardless of what your glass does.</p>
+<p><strong>The "suddenly" layer for this branch:</strong> a main break or hydrant flushing stirs sediment into the supply &mdash; usually temporary, clearing within a day or two of normal use. Well work and pump changes stir wells the same way &mdash; my cabin's post-pump-work gray glass was exactly this, and it settled out as the system flushed clean.</p>
+
+<h2 id="hot-only">The Hot-Water-Only Fork</h2>
+<p>If <em>only</em> your hot water is cloudy and the cold runs clear, the water heater is the chapter &mdash; the same hot/cold logic my <a href="/sulfur-smell-well-water/#fork">sulfur guide</a> uses. Two possibilities, and the glass test still sorts them. Heating drives dissolved gas out of solution, so cloudy hot water that <em>clears bottom-up</em> is just the air verdict's hot-side twin &mdash; harmless, no action. But cloudy hot water that <em>leaves a film or residue</em> is likely tank sediment stirred into the draw, which means it's time to flush the water heater (an annual habit anyway &mdash; my <a href="/water-softener-maintenance/#annual-clean">maintenance guide</a> has the cadence). The fork within the fork: watch which way the hot glass clears, same as the cold. Direction still decides.</p>
+
+<h2 id="rare">Two Rare Forks, Named Honestly</h2>
+<p><strong>Well-water methane.</strong> Rare and regional, but worth naming for the well owner it fits: if your cloudy water also makes the tap <em>sputter</em> and seems gassy, it could be dissolved methane, more common near natural-gas deposits. It isn't toxic to drink, but it's worth a well contractor's look because it can be a fire hazard if it accumulates in enclosed spaces &mdash; the <a href="/well-water-treatment-system/#symptom-map">well pillar</a> has the context. Not common; just not something to ignore if the sputter is there.</p>
+<p><strong>The etched-glass red herring.</strong> Sometimes the "cloudy water" isn't the water at all &mdash; it's the glass. Dishwasher-etched glassware goes permanently foggy and can make perfectly clear water look hazy. The two-glass check settles it: pour into a glass you <em>know</em> is clear (a fresh disposable cup works) and see if the cloudiness is still there. If it's gone, blame the tumbler, not the tap. It's the sheepish-but-common cousin of the plastic-taste mix-up in my <a href="/water-tastes-bad/#index">taste guide</a>.</p>
+
+<h2 id="act">When to Actually Act</h2>
+<p>The honest shortlist, compact, because most of you won't need it: <strong>persistent haze</strong> that survives both the glass test and a second tap &rarr; the turbidity/<a href="/how-to-test-well-water/#reading">testing</a> route. <strong>Cloudiness with a utility notice or boil advisory</strong> &rarr; follow the notice, full stop. <strong>Cloudiness plus a taste or odor change</strong> &rarr; that's a different diagnosis; start at my <a href="/water-tastes-bad/">taste guide</a>, the symptom hub next door. <strong>Cloudiness that sputters and seems gassy on a well</strong> &rarr; the methane fork above. Everything else &mdash; which is most cloudy water &mdash; is the air verdict, and the exhale stands.</p>
+
+<div class="tool" id="verdict-router">
+  <span class="kicker">Interactive Tool</span>
+  <h3>The cloudy water verdict router</h3>
+  <label>Which way did it clear? (Run the glass test first if you haven't)</label>
+  <select id="vr-dir"><option value="" selected>Pick one&hellip;</option><option value="up">Cleared from the bottom up</option><option value="down">Particles settled downward</option><option value="never">Never cleared / uniform haze</option><option value="notyet">Haven't tested yet</option></select>
+  <label>Hot, cold, or both?</label>
+  <select id="vr-temp"><option value="both" selected>Both</option><option value="hot">Only hot</option><option value="cold">Only cold</option></select>
+  <label>Any recent events?</label>
+  <select id="vr-event"><option value="none" selected>Nothing notable</option><option value="cold">Cold snap / winter</option><option value="utility">Utility work / hydrant flushing</option><option value="well">Well or pump work</option><option value="notice">Received a utility notice/advisory</option></select>
+  <div class="result" aria-live="polite" id="vr-result"></div>
+  <p class="fineprint">The most common output here is "you're fine, drink up." A router whose usual answer is good news is the honest kind.</p>
+</div>
+<script>
+(function(){
+  var dir=document.getElementById('vr-dir'),temp=document.getElementById('vr-temp'),event=document.getElementById('vr-event'),res=document.getElementById('vr-result');
+  function upd(){
+    var d=dir.value,tp=temp.value,ev=event.value;
+    // utility notice short-circuit
+    if(ev==='notice'){
+      res.innerHTML='<span class="big">Follow your utility\u2019s notice</span><span>A boil-water notice or advisory overrides the glass test entirely \u2014 follow its instructions until the utility lifts it, regardless of how your water looks. When it\u2019s resolved, if cloudiness lingers, come back and run the test.</span>';return;}
+    if(!d||d==='notyet'){
+      res.innerHTML='<span class="big">Run the two-minute test first</span><span>Fill a clear glass, set it down, and watch for two minutes. Cleared from the bottom up? Air \u2014 harmless. Settled downward or stayed hazy? Keep this router going. The direction is the whole diagnosis, so start there.</span>';return;}
+    if(tp==='hot'){
+      var hotAir = d==='up'?' Yours cleared bottom-up, so it\u2019s just heated-out air \u2014 harmless.':' If the hot glass clears bottom-up it\u2019s heated-out air (harmless); if it leaves a film, it\u2019s tank sediment.';
+      res.innerHTML='<span class="big">The water heater\u2019s chapter</span><span>Cloudy only in hot water points to the heater.'+hotAir+' For sediment, it\u2019s time to flush the heater (my <a href="/water-softener-maintenance/#annual-clean">maintenance guide</a>).</span>';return;}
+    if(d==='up'){
+      var whyNow = ev==='cold'?' Cold weather is the classic trigger \u2014 colder mains carry more dissolved gas.':ev==='utility'?' Recent utility work entrains extra air \u2014 exactly what you\u2019d expect.':ev==='well'?' Pump or tank work stirs air into a well system \u2014 normal and temporary.':'';
+      res.innerHTML='<span class="big">Air \u2014 you\u2019re fine, drink up</span><span>Clearing bottom-up is dissolved air escaping, which the USGS calls completely harmless.'+whyNow+' No fix, no product, no follow-up \u2014 it resolves itself. Enjoy the glass.</span>';return;}
+    if(d==='down'){
+      res.innerHTML='<span class="big">Sediment \u2014 worth a look</span><span>Particles settling down means sediment. Check another tap: all taps = supply-side, one tap = that fixture. A <a href="/go/sediment" rel="nofollow sponsored noopener">spin-down filter</a> is the standard fix (staging in my <a href="/sediment-pre-filter/#placement">sediment guide</a>).'+(ev==='well'||ev==='utility'?' Since there was recent work, it may also just be stirred-up sediment that clears in a day or two.':'')+'</span>';return;}
+    // never cleared
+    res.innerHTML='<span class="big">Persistent haze \u2014 test it</span><span>Cloudiness that never clears is turbidity proper. It\u2019s often harmless but can shelter bacteria, so haze that survives the glass test and a second tap deserves a real <a href="/how-to-test-well-water/#reading">water test</a>. If it came with white kettle residue, that\u2019s <a href="/signs-of-hard-water/#signs">hardness</a> instead.</span>';
+  }
+  [dir,temp,event].forEach(function(el){el.addEventListener('change',upd);});
+  upd();
+})();
+</script>
+
+<h2 id="color">Cloudy vs Colored: A Quick Distinction</h2>
+<p>One thing worth sorting early, because it changes the whole diagnosis: is your water <em>cloudy</em>, or is it <em>colored</em>? They're different problems with different answers. True cloudiness is a white or gray haze &mdash; light scattering off bubbles or particles. Color is something else entirely.</p>
+<p>If your water has a <strong>tint</strong> rather than a haze, read the color. Orange or reddish-brown points to iron, not cloudiness &mdash; a different guide entirely (my <a href="/iron-in-well-water/#ferrous">iron guide</a> covers it). Yellow or brown can be tannins from organic matter, common on some wells. A blue-green tint in the first draw of the morning can signal copper from plumbing. None of these are the air-or-sediment question this page answers &mdash; they're color problems, and color means test, not wait. So before you run the glass test, ask yourself the simpler question: haze, or hue? If it's a hue, you're on the wrong page, and I've just pointed you to the right one.</p>
+<p>The clean mental model: <strong>white haze is the cloudy-water question</strong> (air or particles, and the glass test sorts it). <strong>Any actual color is a contaminant question</strong> (iron, tannins, copper), and those get identified and tested, not waited out. Getting this fork right saves you from watching a glass of iron water clear from the bottom up and wrongly concluding you're fine.</p>
+
+<h2 id="pattern">Reading the Pattern (Before You Spend a Dollar)</h2>
+<p>If your cloud turned out to be the settling kind, resist the urge to buy a filter immediately. The smarter move is to read the pattern first, because the pattern often names the cause for free. Three questions do most of the work.</p>
+<p><strong>When did it start?</strong> Cloudiness that appeared suddenly, right after a cold snap or some utility work, is usually temporary and self-resolving &mdash; give it a few days of normal use before concluding anything. Cloudiness that's been slowly getting worse over months points to something building up, like heater sediment or an aging well screen. The timeline is a clue.</p>
+<p><strong>Where does it show up?</strong> Every tap in the house means the supply or your main entry point. One tap means that fixture &mdash; check its aerator, the little screen at the faucet tip, which traps debris and is a two-minute clean or replacement. Only the hot tap means the water heater. This one question routes you to the right third of the house.</p>
+<p><strong>Does anyone else have it?</strong> On city water, a quick text to a neighbor settles whether it's the utility's issue or yours. If the whole street's water is cloudy, it's the supply and the utility will likely address it. If it's only your house, the cause is on your side of the meter &mdash; your plumbing, your equipment, your fixtures. That single question can save you a service call. The point of all this: the pattern is free diagnostic information, and reading it before shopping keeps you from buying a filter for a problem that a neighbor's phone call would have solved.</p>
+
+<h2 id="ice">A Bonus: Cloudy Ice Is the Same Story</h2>
+<p>Here's a small one that trips people up. Your ice cubes come out white and cloudy in the center, while store-bought ice is crystal clear. Same physics, frozen. Tap water holds dissolved air and minerals, and when it freezes fast in your freezer, that air gets trapped as tiny bubbles in the middle of the cube. The white core is just frozen air, exactly like the cloudy glass. It's harmless.</p>
+<p>Commercial ice is clear because it's frozen slowly, which lets the air escape before it's trapped. If clear ice matters to you, freeze slowly in an insulated container with the top open. But for a drink, cloudy ice is fine. It's the same dissolved air you just learned to recognize in the glass &mdash; now you know it on sight, frozen or not.</p>
+
+<h2 id="faq" class="faq">Cloudy Water FAQ</h2>
+
+<h3>Is cloudy tap water safe to drink?</h3>
+<p>Usually yes. If it clears from the bottom up within a minute or two, it's dissolved air &mdash; the USGS calls this completely harmless, and it's safe to drink immediately. The exception is cloudiness that doesn't clear: persistent haze (turbidity) can occasionally shelter bacteria and warrants a test, and any cloudiness arriving with a boil-water notice means you follow the notice. Air clears; turbidity lingers. The glass test tells them apart.</p>
+
+<h3>Why is my water cloudy all of a sudden?</h3>
+<p>Most often, physics. A cold snap sends colder, more gas-rich water through the mains, and that dissolved air comes out as bubbles in your glass. Recent utility work or a main repair can also entrain air or briefly stir sediment. On a well, pump or pressure-tank work does the same. Run the glass test: bottom-up clearing confirms harmless air, which is the usual answer to a sudden appearance.</p>
+
+<h3>Why is only my hot water cloudy?</h3>
+<p>Because heating releases dissolved gas &mdash; hot water holds less air than cold, so warming it in the heater pushes the excess out as bubbles, giving cloudy hot water that clears bottom-up and is harmless. If instead the hot water leaves a film or residue, that's sediment stirred from the water heater tank, and it's time for an annual heater flush. Watch which way the hot glass clears to tell the two apart.</p>
+
+<h3>Does cloudy water mean a main break?</h3>
+<p>Not usually. A main break or nearby hydrant flushing can stir sediment into the supply and cause temporary cloudiness, but ordinary milky water is far more often just dissolved air from temperature and pressure changes. If a break occurred, the cloudiness would typically be particulate (settling downward) rather than uniform milk, and your utility would usually issue a notice. When in doubt, check whether neighbors see it too.</p>
+
+<h3>Why is my water cloudy in winter?</h3>
+<p>Cold water holds more dissolved gas than warm water, and winter mains deliver the coldest water of the year. As that cold, gas-rich water reaches your warmer home and the pressure drops at the tap, the excess air escapes as micro-bubbles &mdash; the milky look. It's the single most common seasonal cause, completely harmless, and it clears bottom-up in seconds. It's physics, not a water-quality problem.</p>
+
+<h3>How long should cloudy water take to clear?</h3>
+<p>Air-bubble cloudiness clears fast &mdash; typically 30 seconds to a couple of minutes, from the bottom up. If your glass is clear within that window, it's air and you're done. Water that's still cloudy after several minutes suggests sediment or minerals rather than air, and cloudiness that persists for hours or across many glasses warrants a water test or a call to your utility. The clearing speed is itself a clue.</p>
+
+<h2 id="next-steps">Next Steps, By Your Verdict</h2>
+<p><strong>Cleared bottom-up?</strong> Enjoy the glass &mdash; that's dissolved air, and it's harmless. <strong>Settled downward?</strong> That's sediment; my <a href="/sediment-pre-filter/#placement">sediment guide</a> and a spin-down filter are the path. <strong>Never cleared?</strong> Persistent turbidity deserves a <a href="/how-to-test-well-water/#reading">test</a>. <strong>Hot only?</strong> The heater chapter &mdash; flush it. <strong>White kettle residue?</strong> That's <a href="/signs-of-hard-water/#signs">hard water</a>, not cloudiness. I've stood over both my glasses &mdash; the one that cleared itself and the one that didn't &mdash; and the two-minute test told me which was which every time. Pour yours, watch the direction, and you'll know too.</p>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Cloudy or Milky Tap Water: The Two-Minute Diagnosis",
+  "author": {"@type": "Person", "name": "Kelly McClendon", "url": "https://waterfiltersoftenercombo.com/about/", "image": "https://waterfiltersoftenercombo.com/author-kelly.jpg"},
+  "publisher": {"@type": "Organization", "name": "WaterFilterSoftenerCombo.com"},
+  "datePublished": "2026-07-03",
+  "description": "Cloudy tap water that clears from the bottom up is harmless dissolved air. Particles that settle downward mean sediment. The two-minute glass test tells you which."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"Is cloudy tap water safe to drink?","acceptedAnswer":{"@type":"Answer","text":"Usually yes. If it clears from the bottom up within a minute or two, it's dissolved air - the USGS calls this completely harmless, safe to drink immediately. The exception is cloudiness that doesn't clear: persistent turbidity can occasionally shelter bacteria and warrants a test, and any cloudiness with a boil-water notice means you follow the notice. Air clears; turbidity lingers."}},
+    {"@type":"Question","name":"Why is my water cloudy all of a sudden?","acceptedAnswer":{"@type":"Answer","text":"Most often, physics. A cold snap sends colder, more gas-rich water through the mains, and that dissolved air comes out as bubbles. Recent utility work or a main repair can entrain air or stir sediment. On a well, pump or pressure-tank work does the same. Run the glass test: bottom-up clearing confirms harmless air, the usual answer to a sudden appearance."}},
+    {"@type":"Question","name":"Why is only my hot water cloudy?","acceptedAnswer":{"@type":"Answer","text":"Because heating releases dissolved gas - hot water holds less air than cold, so warming it pushes the excess out as bubbles, giving cloudy hot water that clears bottom-up and is harmless. If instead the hot water leaves a film or residue, that's sediment stirred from the water heater tank, and it's time for an annual heater flush. Watch which way the hot glass clears."}},
+    {"@type":"Question","name":"Does cloudy water mean a main break?","acceptedAnswer":{"@type":"Answer","text":"Not usually. A main break or hydrant flushing can stir sediment and cause temporary cloudiness, but ordinary milky water is far more often just dissolved air from temperature and pressure changes. If a break occurred, the cloudiness would typically settle downward rather than being uniform milk, and your utility would usually issue a notice. Check whether neighbors see it too."}},
+    {"@type":"Question","name":"Why is my water cloudy in winter?","acceptedAnswer":{"@type":"Answer","text":"Cold water holds more dissolved gas than warm water, and winter mains deliver the coldest water of the year. As that cold, gas-rich water reaches your warmer home and pressure drops at the tap, the excess air escapes as micro-bubbles - the milky look. It's the most common seasonal cause, completely harmless, and clears bottom-up in seconds. Physics, not a water-quality problem."}},
+    {"@type":"Question","name":"How long should cloudy water take to clear?","acceptedAnswer":{"@type":"Answer","text":"Air-bubble cloudiness clears fast - typically 30 seconds to a couple of minutes, from the bottom up. If your glass is clear within that window, it's air and you're done. Water still cloudy after several minutes suggests sediment or minerals rather than air, and cloudiness that persists for hours warrants a water test or a call to your utility. The clearing speed is itself a clue."}}
+  ]
+}
+</script>
